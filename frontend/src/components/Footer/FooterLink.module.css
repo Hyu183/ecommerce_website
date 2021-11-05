@@ -1,0 +1,13 @@
+/* .link + .link {
+    margin-right: 10px;
+    text-align: center;
+} */
+.link a {
+    padding: 0;
+    color: var(--greyish-two);
+}
+
+.link {
+    padding: 0;
+    text-align: center;
+}
