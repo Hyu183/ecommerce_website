@@ -24,6 +24,7 @@
     border: solid 0.5px var(--white-six);
     background-color: var(--white-five);
     padding: 12px 20px;
+    z-index: 1;
 }
 
 .dropdown-content a {

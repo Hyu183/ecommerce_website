@@ -7,11 +7,17 @@ import {
     faChevronUp,
 } from '@fortawesome/free-solid-svg-icons';
 import Header from './components/Header/Header';
+import Home from './components/Home/Home';
 
 library.add(fab, faSearch, faChevronDown, faChevronUp);
 
 function App() {
-    return <Header />;
+    return (
+        <div>
+            <Header />
+            <Home />
+        </div>
+    );
 }
 
 export default App;

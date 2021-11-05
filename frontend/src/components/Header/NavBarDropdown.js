@@ -18,8 +18,12 @@ const NavBarDropdown = (props) => {
             className={classes['dropdown-content']}
             onMouseLeave={() => setIsDropped(!isDropped)}
         >
-            {subCatList.map((subCat) => {
-                return <a href={`/${subCat}`}>{subCat}</a>;
+            {subCatList.map((subCat, index) => {
+                return (
+                    <a key={index} href={`/${subCat}`}>
+                        {subCat}
+                    </a>
+                );
             })}
         </div>
     ) : (

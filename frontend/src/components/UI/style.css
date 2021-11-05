@@ -1,0 +1,10 @@
+.button {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    color: var(--white);
+    padding: 12px 64px;
+}
+.button:hover {
+    color: var(--white);
+}

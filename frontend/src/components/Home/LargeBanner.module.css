@@ -1,0 +1,26 @@
+.container {
+    position: relative;
+    padding: 0;
+}
+
+.large-text {
+    font-family: 'Domine';
+    font-weight: bold;
+    font-size: 48px;
+    position: absolute;
+    top: 10%;
+    right: 10%;
+    text-transform: uppercase;
+    color: var(--white);
+}
+
+.button {
+    position: absolute;
+    bottom: 10%;
+    right: 10%;
+    color: var(--white);
+    padding: 12px 64px;
+}
+.button:hover {
+    color: var(--white);
+}

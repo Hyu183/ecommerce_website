@@ -8,7 +8,7 @@ import HeaderTopRight from './HeaderTopRight';
 
 const HeaderTop = () => {
     return (
-        <Container>
+        <Container className='ps-0 pe-0'>
             <Row lg={12} className='justify-content-space-around mt-4 mb-3'>
                 <Col sm={12} md={4} lg={3}>
                     <SearchBar />
@@ -21,8 +21,13 @@ const HeaderTop = () => {
                 >
                     <img src={logo} alt='Logo' />
                 </Col>
-                <Col sm={12} md={5} lg={4} className='text-center'>
-                    <HeaderTopRight isLoggedIn={true} avatarUrl={avatar} />
+                <Col
+                    sm={12}
+                    md={5}
+                    lg={4}
+                    className='d-flex justify-content-end align-items-center'
+                >
+                    <HeaderTopRight isLoggedIn={false} avatarUrl={avatar} />
                 </Col>
             </Row>
         </Container>
