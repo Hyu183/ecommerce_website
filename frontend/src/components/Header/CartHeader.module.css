@@ -1,0 +1,14 @@
+a {
+    text-decoration: none;
+}
+
+.badge {
+    /* background-color: var(--pale-orange); */
+    font-size: 0.75rem;
+    background: var(--pale-orange);
+    color: #fff;
+    padding: 1px 5px;
+    vertical-align: top;
+    margin-left: -15px;
+    border-radius: 100px;
+}

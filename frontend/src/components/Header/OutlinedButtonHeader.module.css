@@ -1,0 +1,13 @@
+.outlined-button {
+    border-radius: 100px;
+    font-weight: bold;
+    padding-left: 2.5rem;
+    padding-right: 2.5rem;
+    margin-right: 10px;
+}
+
+.outlined-button:hover,
+.outlined-button:active {
+    border-radius: 100px;
+    color: var(--white);
+}

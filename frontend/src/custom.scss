@@ -1,0 +1,9 @@
+$theme-colors: (
+    // "info": tomato,
+    // "danger": teal
+    'primary': #ffa15f
+);
+
+$--bs-body-font-weight: normal;
+/* import bootstrap to set changes */
+@import '~bootstrap/scss/bootstrap.scss';

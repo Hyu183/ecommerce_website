@@ -1,0 +1,27 @@
+.search {
+    border-radius: 100px;
+    border: solid 1.5px var(--greyish-two);
+    padding: 2px 15px;
+}
+
+.search-input {
+    border: 0;
+}
+.search-input:focus {
+    box-shadow: none;
+}
+.search-input::placeholder {
+    /* Chrome, Firefox, Opera, Safari 10.1+ */
+    color: var(--pinkish-grey);
+    font-size: 14px;
+    opacity: 1; /* Firefox */
+}
+.search-input::-ms-input-placeholder {
+    /* Microsoft Edge */
+    color: var(--pinkish-grey);
+}
+
+.search-icon {
+    color: var(--greyish-two);
+    fill: var(--greyish-two);
+}

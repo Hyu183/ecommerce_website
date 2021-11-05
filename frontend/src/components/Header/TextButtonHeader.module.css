@@ -1,0 +1,9 @@
+.text-button,
+.text-button:hover,
+.text-button:active,
+.text-button:focus {
+    color: var(--greyish-brown);
+    text-decoration: none;
+    box-shadow: none;
+    margin-right: 10px;
+}
