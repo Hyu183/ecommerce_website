@@ -10,7 +10,7 @@ const SmallBanner = (props) => {
             style={{
                 backgroundImage: `url(${imgUrl})`,
                 height: '406px',
-                backgroundSize: 'cover',
+                backgroundSize: 'inherit',
                 backgroundRepeat: 'no-repeat',
             }}
         >

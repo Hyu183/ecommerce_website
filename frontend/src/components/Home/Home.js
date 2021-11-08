@@ -35,8 +35,10 @@ const Home = (props) => {
         'https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2021/10/04142003/jisoo-dior-paris-fashion-week-hero.jpg';
     return (
         <Container className='mt-4 mb-4 p-0'>
-            <Row className='mb-4'>
-                <LargeBanner imgUrl={url} />
+            <Row className='mb-4 '>
+                <Col>
+                    <LargeBanner imgUrl={url} />
+                </Col>
             </Row>
             <Row className='justify-content-between'>
                 {list.map((item) => {
@@ -44,9 +46,9 @@ const Home = (props) => {
                         <Col
                             key={item.id}
                             sm={12}
-                            md={5}
+                            md={6}
                             lg={3}
-                            className='mb-4 ps-0 pe-0'
+                            className='mb-4'
                         >
                             <SmallBanner
                                 imgUrl={item.imgUrl}
