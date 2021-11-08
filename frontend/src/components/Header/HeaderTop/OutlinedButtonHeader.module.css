@@ -1,8 +1,9 @@
 .outlined-button {
     border-radius: 100px;
     font-weight: bold;
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    font-size: 1.4rem;
+    padding-left: 30px;
+    padding-right: 30px;
     margin-right: 10px;
 }
 

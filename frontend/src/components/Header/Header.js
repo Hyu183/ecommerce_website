@@ -1,6 +1,6 @@
 // import classes from './Header.module.css';
-import HeaderTop from './HeaderTop';
-import NavBar from './NavBar';
+import HeaderTop from './HeaderTop/HeaderTop';
+import NavBar from './NavBar/NavBar';
 
 const Header = () => {
     return (

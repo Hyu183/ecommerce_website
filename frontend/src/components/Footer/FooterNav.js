@@ -1,6 +1,6 @@
 import { Row, Col } from 'react-bootstrap';
 
-import classes from './FooterLink.module.css';
+import classes from './FooterNav.module.css';
 
 const FooterLink = (props) => {
     const { fontSize } = props;

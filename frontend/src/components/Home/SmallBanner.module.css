@@ -15,7 +15,7 @@
 .large-text {
     font-family: 'Domine';
     font-weight: bold;
-    font-size: 24px;
+    font-size: 2.4rem;
     text-transform: capitalize;
     color: var(--white);
     line-height: 1rem;
@@ -33,6 +33,7 @@
     padding: 12px 10px;
     display: inline;
     width: 60%;
+    font-size: 1.4rem;
 }
 .button:hover {
     color: var(--white);

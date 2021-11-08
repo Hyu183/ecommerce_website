@@ -29,7 +29,7 @@
 
 .dropdown-content a {
     font-weight: 400;
-    font-size: 14px;
+    font-size: 1.4rem;
     color: var(--dark-grey);
     padding: 16px 22px;
     text-decoration: none;

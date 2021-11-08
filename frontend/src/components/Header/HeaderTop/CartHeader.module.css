@@ -4,7 +4,7 @@ a {
 
 .badge {
     /* background-color: var(--pale-orange); */
-    font-size: 0.75rem;
+    font-size: 1.2rem;
     background: var(--pale-orange);
     color: #fff;
     padding: 1px 5px;

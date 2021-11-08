@@ -38,15 +38,15 @@ const Home = (props) => {
             <Row className='mb-4'>
                 <LargeBanner imgUrl={url} />
             </Row>
-            <Row>
+            <Row className='justify-content-between'>
                 {list.map((item) => {
                     return (
                         <Col
                             key={item.id}
                             sm={12}
-                            md={6}
+                            md={5}
                             lg={3}
-                            className='mb-4'
+                            className='mb-4 ps-0 pe-0'
                         >
                             <SmallBanner
                                 imgUrl={item.imgUrl}
@@ -56,18 +56,6 @@ const Home = (props) => {
                         </Col>
                     );
                 })}
-                {/* <Col sm={12} md={6} lg={3} className='mb-4'>
-                    <SmallBanner imgUrl={url} text='Men' />
-                </Col>
-                <Col sm={12} md={6} lg={3} className='mb-4'>
-                    <SmallBanner imgUrl={url} />
-                </Col>
-                <Col sm={12} md={6} lg={3} className='mb-4'>
-                    <SmallBanner imgUrl={url} />
-                </Col>
-                <Col sm={12} md={6} lg={3} className='mb-4'>
-                    <SmallBanner imgUrl={url}  />
-                </Col> */}
             </Row>
         </Container>
     );

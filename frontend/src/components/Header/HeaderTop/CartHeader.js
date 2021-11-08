@@ -1,6 +1,6 @@
 import React from 'react';
 
-import cartIcon from '../../assets/cart.svg';
+import cartIcon from '../../../assets/cart.svg';
 import classes from './CartHeader.module.css';
 
 const CartHeader = (props) => {

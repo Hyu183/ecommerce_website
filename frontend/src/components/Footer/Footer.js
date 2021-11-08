@@ -1,8 +1,8 @@
 import React from 'react';
 import { Container } from 'react-bootstrap';
 
-import FooterMain from './FooterMain';
-import FooterBottom from './FooterBottom';
+import FooterMain from './FooterMain/FooterMain';
+import FooterBottom from './FooterBottom/FooterBottom';
 
 import classes from './Footer.module.css';
 
