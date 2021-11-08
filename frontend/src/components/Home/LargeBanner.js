@@ -13,6 +13,7 @@ const LargeBanner = (props) => {
                 height: '514px',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
             }}
         >
             <div className={classes['large-text']}>Outfit of the week</div>

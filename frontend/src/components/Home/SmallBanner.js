@@ -10,8 +10,9 @@ const SmallBanner = (props) => {
             style={{
                 backgroundImage: `url(${imgUrl})`,
                 height: '406px',
-                backgroundSize: 'inherit',
+                backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
+                backgroundPosition: 'center',
             }}
         >
             <div className={classes.child}>
