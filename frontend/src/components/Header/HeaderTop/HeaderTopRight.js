@@ -3,15 +3,24 @@ import React, { useState } from 'react';
 import TextButtonHeader from './TextButtonHeader';
 import OutlinedButtonHeader from './OutlinedButtonHeader';
 import CartHeader from './CartHeader';
-
+import Modal from '../../Modal/Modal';
 import classes from './HeaderTopRight.module.css';
 
 const HeaderTopRight = (props) => {
     const [showSettings, setShowSettings] = useState(false);
+    const [showModal, setShowModal] = useState(false);
     if (!props.isLoggedIn) {
         return (
             <React.Fragment>
-                <TextButtonHeader text='Register' href='' />
+                {showModal && (
+                    <Modal onClose={() => setShowModal(false)}>
+                        <span>Test</span>
+                    </Modal>
+                )}
+                <TextButtonHeader
+                    text='Register'
+                    onClick={() => setShowModal(true)}
+                />
 
                 <OutlinedButtonHeader text='Log In' href='' />
 

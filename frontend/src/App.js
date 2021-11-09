@@ -4,19 +4,21 @@ import {
     faSearch,
     faChevronDown,
     faChevronUp,
+    faTimes,
 } from '@fortawesome/free-solid-svg-icons';
-import Header from './components/Header/Header';
-import Footer from './components/Footer/Footer';
-import Home from './components/Home/Home';
 
-library.add(fab, faSearch, faChevronDown, faChevronUp);
+// import { Row, Col, Container } from 'react-bootstrap';
+import Homepage from './pages/Homepage';
+import ProductListPage from './pages/ProductListPage';
+import Modal from './components/Modal/Modal';
+
+library.add(fab, faSearch, faChevronDown, faChevronUp, faTimes);
 
 function App() {
     return (
         <div>
-            <Header />
-            <Home />
-            <Footer />
+            <Homepage />
+            {/* <ProductListPage /> */}
         </div>
     );
 }

@@ -1,5 +1,4 @@
-import { Button } from 'react-bootstrap';
-
+import ElevatedButton from '../UI/Button/ElevatedButton';
 import classes from './LargeBanner.module.css';
 
 const LargeBanner = (props) => {
@@ -7,7 +6,7 @@ const LargeBanner = (props) => {
 
     return (
         <div
-            className={classes.container}
+            className={classes.mycontainer}
             style={{
                 backgroundImage: `url(${imgUrl})`,
                 height: '514px',
@@ -18,9 +17,15 @@ const LargeBanner = (props) => {
         >
             <div className={classes['large-text']}>Outfit of the week</div>
 
-            <Button size='lg' className={classes.button} href={props.href}>
+            <ElevatedButton
+                className={classes.button}
+                text='Shop now'
+                type='button'
+                isDisabled={false}
+            />
+            {/* <Button size='lg' className={classes.button} href={props.href}>
                 Shop now
-            </Button>
+            </Button> */}
         </div>
     );
 };

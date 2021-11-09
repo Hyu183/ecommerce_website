@@ -1,7 +1,7 @@
 @font-face {
     font-family: Montserrat;
     src: local(Montserrat-Regular),
-        url(./fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
+        url(./assets/fonts/Montserrat/Montserrat-Regular.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -9,7 +9,7 @@
 @font-face {
     font-family: Montserrat;
     src: local(Montserrat-Medium),
-        url(./fonts/Montserrat/Montserrat-Medium.ttf) format('truetype');
+        url(./assets/fonts/Montserrat/Montserrat-Medium.ttf) format('truetype');
     font-weight: 500;
     font-style: normal;
     font-stretch: normal;
@@ -17,7 +17,8 @@
 @font-face {
     font-family: Montserrat;
     src: local(Montserrat-SemiBold),
-        url(./fonts/Montserrat/Montserrat-SemiBold.ttf) format('truetype');
+        url(./assets/fonts/Montserrat/Montserrat-SemiBold.ttf)
+            format('truetype');
     font-weight: 600;
     font-style: normal;
     font-stretch: normal;
@@ -25,7 +26,7 @@
 @font-face {
     font-family: Montserrat;
     src: local(Montserrat-Bold),
-        url(./fonts/Montserrat/Montserrat-Bold.ttf) format('truetype');
+        url(./assets/fonts/Montserrat/Montserrat-Bold.ttf) format('truetype');
     font-weight: bold;
     font-style: normal;
     font-stretch: normal;
@@ -33,7 +34,7 @@
 @font-face {
     font-family: Domine;
     src: local(Domine-Regular),
-        url(./fonts/Domine/Domine-Regular.ttf) format('truetype');
+        url(./assets/fonts/Domine/Domine-Regular.ttf) format('truetype');
     font-weight: normal;
     font-style: normal;
     font-stretch: normal;
@@ -68,46 +69,13 @@
 
 html {
     margin: 0;
+    padding: 0;
     height: 100vh;
-    width: 100vw;
-    font-size: 62.5% !important;
-    line-height: 22px !important;
-}
-body {
-    font-family: Montserrat !important;
+    width: 100%;
+    font-size: 10px;
 }
 
 *::selection {
     background-color: var(--pale-orange);
     color: var(--white);
 }
-/*
-@media screen and (max-width: 575.98px) {
-    html {
-        font-size: 100% !important;
-    }
-}
-
- @media screen and (max-width: 767.98px) {
-    html {
-        font-size: 100% !important;
-    }
-}
-
-@media screen and (max-width: 991.98px) {
-    html {
-        font-size: 100% !important;
-    }
-}
-
-@media screen and (max-width: 1199.98px) {
-    html {
-        font-size: 100% !important;
-    }
-} 
-
-@media screen and (max-width: 1399.98px) {
-    html {
-        font-size: 62.5% !important;
-    }
-}*/

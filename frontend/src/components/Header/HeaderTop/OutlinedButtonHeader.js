@@ -7,7 +7,8 @@ const OutlinedButtonHeader = (props) => {
         <Button
             className={classes['outlined-button']}
             variant='outline-primary'
-            href={props.href}
+            // href={props.href}
+            onClick={props.handler}
             size='md'
         >
             {props.text}

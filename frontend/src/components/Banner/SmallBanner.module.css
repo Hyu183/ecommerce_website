@@ -29,12 +29,11 @@
 }
 
 .button {
-    color: var(--white);
     padding: 12px 10px;
     display: inline;
     width: 60%;
     font-size: 1.4rem;
 }
 .button:hover {
-    color: var(--white);
+    background-color: var(--pumpkin-orange);
 }

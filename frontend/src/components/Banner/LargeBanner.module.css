@@ -1,4 +1,4 @@
-.container {
+.mycontainer {
     position: relative;
     padding: 0;
 }
@@ -19,9 +19,11 @@
     bottom: 10%;
     right: 10%;
     color: var(--white);
-    padding: 12px 64px;
+    height: 50px;
     font-size: 1.6rem;
 }
 .button:hover {
-    color: var(--white);
+    /* color: var(--white); */
+
+    background-color: var(--pumpkin-orange);
 }

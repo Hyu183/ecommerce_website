@@ -7,7 +7,7 @@ const TextButtonHeader = (props) => {
         <Button
             variant='link'
             className={classes['text-button']}
-            href={props.href}
+            onClick={props.onClick}
         >
             {props.text}
         </Button>

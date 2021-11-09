@@ -1,0 +1,30 @@
+.input-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    min-width: 200px;
+}
+
+.input {
+    color: var(--dark-grey);
+    background-color: var(--white-two);
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+}
+.input::placeholder {
+    color: var(--greyish-brown);
+}
+
+.label {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}

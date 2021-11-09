@@ -1,0 +1,19 @@
+.button {
+    display: block;
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    background-color: var(--pale-orange);
+    padding: 12px 64px;
+    /* width: 100%; */
+
+    font-size: 1.4rem;
+    color: var(--white);
+    border: none;
+    text-align: center;
+}
+
+.button--disabled {
+    background-color: var(--white-four);
+    cursor: default !important;
+
+    color: var(--white);
+}
