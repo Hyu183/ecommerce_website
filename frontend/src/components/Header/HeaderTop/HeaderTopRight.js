@@ -4,6 +4,8 @@ import TextButtonHeader from './TextButtonHeader';
 import OutlinedButtonHeader from './OutlinedButtonHeader';
 import CartHeader from './CartHeader';
 import Modal from '../../Modal/Modal';
+import RegisterForm from '../../Form/RegisterForm';
+
 import classes from './HeaderTopRight.module.css';
 
 const HeaderTopRight = (props) => {
@@ -14,7 +16,7 @@ const HeaderTopRight = (props) => {
             <React.Fragment>
                 {showModal && (
                     <Modal onClose={() => setShowModal(false)}>
-                        <span>Test</span>
+                        <RegisterForm />
                     </Modal>
                 )}
                 <TextButtonHeader

@@ -6,4 +6,10 @@
     line-height: 1.57;
     letter-spacing: normal;
     color: var(--pumpkin-orange);
+    border-bottom: 2px solid var(--pumpkin-orange);
+}
+
+.a:hover {
+    color: var(--pale-orange);
+    border-bottom: 2px solid var(--pale-orange);
 }

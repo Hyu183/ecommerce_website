@@ -2,26 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from './Modal.module.css';
-import { Dropdown } from 'react-bootstrap';
-
-// const Backdrop = () => {
-//     return <div className={classes.backdrop} />;
-// };
-
-// const ModalOverlay = (props) => {
-//     return (
-//         <React.Fragment>
-//             <div className={classes.backdrop}>
-//                 <div className={classes.modal}>
-//                     <button className={classes.button}>
-//                         <FontAwesomeIcon icon='times' color='grey' size='lg' />
-//                     </button>
-//                     {props.children}
-//                 </div>
-//             </div>
-//         </React.Fragment>
-//     );
-// };
+// import { Dropdown } from 'react-bootstrap';
 
 const ModalElement = (props) => {
     return (
