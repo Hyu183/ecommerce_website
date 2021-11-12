@@ -2,7 +2,7 @@ import ElevatedButton from '../UI/Button/ElevatedButton';
 import classes from './SmallBanner.module.css';
 
 const SmallBanner = (props) => {
-    const { imgUrl, href, text } = props;
+    const { imgUrl, text } = props; //href,
 
     return (
         <div

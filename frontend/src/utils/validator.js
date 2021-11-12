@@ -6,11 +6,11 @@ const validateEmail = (email) => {
 
 const validateName = (name) => {
     const regex = /^([a-zA-Z ]){2,50}$/;
-    return regex.test(name);
+    return regex.test(name.trim());
 };
 
 const validatePassword = (password) => {
-    return password.length > 6;
+    return password.trim().length > 6;
 };
 
 export { validateEmail, validateName, validatePassword };

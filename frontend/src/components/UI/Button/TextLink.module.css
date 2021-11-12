@@ -1,4 +1,4 @@
-.a {
+.button {
     font-size: 14px;
     font-weight: bold;
     font-stretch: normal;
@@ -7,9 +7,14 @@
     letter-spacing: normal;
     color: var(--pumpkin-orange);
     border-bottom: 2px solid var(--pumpkin-orange);
+    /* border:  */
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: none;
 }
 
-.a:hover {
+.button:hover {
     color: var(--pale-orange);
     border-bottom: 2px solid var(--pale-orange);
 }

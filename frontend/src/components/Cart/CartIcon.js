@@ -1,9 +1,9 @@
 import React from 'react';
 
-import cartIcon from '../../../assets/cart.svg';
-import classes from './CartHeader.module.css';
+import cartIcon from './../../assets/cart.svg';
+import classes from './CartIcon.module.css';
 
-const CartHeader = (props) => {
+const CartIcon = (props) => {
     return (
         <a href='/'>
             <img src={cartIcon} alt='Cart' />
@@ -12,4 +12,4 @@ const CartHeader = (props) => {
     );
 };
 
-export default CartHeader;
+export default CartIcon;

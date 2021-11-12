@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
 import Header from '../components/Header/Header';
+import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
 import ProductItem from '../components/Product/ProductItem/ProductItem';
 
@@ -89,6 +90,7 @@ const ProductListPage = (props) => {
     return (
         <React.Fragment>
             <Header />
+            <NavBar />
             <Container className='mt-4 mb-4 p-0'>
                 <Row>
                     <Col lg={2}>Category</Col>

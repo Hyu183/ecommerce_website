@@ -1,19 +1,30 @@
 import { Container, Row, Col } from 'react-bootstrap';
-import React from 'react';
+import React, { useState } from 'react';
+import { toast } from 'material-react-toastify';
+
+import classes from './RegisterForm.module.css';
 
 import ElevatedButton from '../UI/Button/ElevatedButton';
 import TextLink from '../UI/Button/TextLink';
 import Input from '../UI/Input/Input';
-import useInput from '../../hooks/use-input';
+import LoadingSpinner from '../UI/LoadingSpinner/LoadingSpinner';
+import useInput from '../../hooks/useInput';
+
 import {
     validateEmail,
     validateName,
     validatePassword,
 } from '../../utils/validator';
 
-import classes from './RegisterForm.module.css';
+import userApi from '../../api/userApi';
 
-const RegisterForm = () => {
+const RegisterForm = (props) => {
+    const { navigateLogInHandler } = props;
+    const nbsp = <span>&nbsp;</span>; //keep space for error message
+
+    const [isLoading, setIsLoading] = useState(false);
+    const [errorText, setErrorText] = useState('');
+
     const {
         value: enteredName,
         isValid: enteredNameIsValid,
@@ -43,65 +54,116 @@ const RegisterForm = () => {
         if (!isFormValid) {
             return;
         }
-        console.log(enteredName);
-        console.log(enteredEmail);
-        console.log(enteredPassword);
+        const user = {
+            name: enteredName,
+            email: enteredEmail,
+            password: enteredPassword,
+        };
+        //set effect
+        setIsLoading(true);
+        setErrorText('');
+
+        //send request
+        userApi
+            .register(user)
+            .then((res) => {
+                setIsLoading(false);
+                toast.success('Register successfully!', {
+                    position: 'top-right',
+                    autoClose: 1500,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    className: classes['toast-text'],
+                });
+                navigateLogInHandler();
+            })
+            .catch((error) => {
+                setIsLoading(false);
+                const errorResponse = error.response;
+                if (errorResponse.status === 400) {
+                    //register fail
+                    setErrorText(errorResponse.data.message);
+                } else {
+                    setErrorText('Unable to connect to server');
+                }
+            });
     };
 
     return (
         <Container>
-            <h2 className={classes.title}>Register</h2>
-            <form className={classes.form}>
-                <Input
-                    id='name'
-                    type='text'
-                    label='name'
-                    placeholderText='Enter your name...'
-                    isValid={!enteredNameHasError}
-                    errText='Please enter a valid name!'
-                    value={enteredName}
-                    onChange={nameInputChangeHandler}
-                    onBlur={nameInputBlurHandler}
-                />
-                <Input
-                    id='email'
-                    type='text'
-                    label='e-mail'
-                    placeholderText='Enter your email...'
-                    isValid={!enteredEmailHasError}
-                    errText='Please enter a valid e-mail!'
-                    value={enteredEmail}
-                    onChange={emailInputChangeHandler}
-                    onBlur={emailInputBlurHandler}
-                />
-                <Input
-                    id='password'
-                    type='password'
-                    label='password'
-                    placeholderText='Enter your password...'
-                    isValid={!enteredPasswordHasError}
-                    errText='Your passwords must be more than 6 characters!'
-                    value={enteredPassword}
-                    onChange={passwordInputChangeHandler}
-                    onBlur={passwordInputBlurHandler}
-                />
-                <div className={classes.term}>
-                    By creating an account you agree to the{' '}
-                    <TextLink href='#' text='Terms of Service' /> and{' '}
-                    <TextLink href='#' text='Privacy Policy' />
-                </div>
-                <ElevatedButton
-                    text='Register'
-                    onClick={onSubmitForm}
-                    type='button'
-                    isDisabled={!isFormValid}
-                    className={classes.button}
-                />
-            </form>
             <Row>
-                <div className={classes.switch}>
-                    Do you have an account? <TextLink href='#' text='Log In' />
-                </div>
+                <Col>
+                    <h2 className={classes.title}>Register</h2>
+                    <p className={classes['form-err']}>
+                        {errorText.length !== 0 ? errorText : nbsp}
+                    </p>
+
+                    <form className={classes.form}>
+                        <Input
+                            id='name'
+                            type='text'
+                            label='name'
+                            placeholderText='Enter your name...'
+                            isValid={!enteredNameHasError}
+                            errText='Please enter a valid name!'
+                            value={enteredName}
+                            onChange={nameInputChangeHandler}
+                            onBlur={nameInputBlurHandler}
+                        />
+                        <Input
+                            id='email'
+                            type='text'
+                            label='e-mail'
+                            placeholderText='Enter your email...'
+                            isValid={!enteredEmailHasError}
+                            errText='Please enter a valid e-mail!'
+                            value={enteredEmail}
+                            onChange={emailInputChangeHandler}
+                            onBlur={emailInputBlurHandler}
+                        />
+                        <Input
+                            id='password'
+                            type='password'
+                            label='password'
+                            placeholderText='Enter your password...'
+                            isValid={!enteredPasswordHasError}
+                            errText='Your passwords must be more than 6 characters!'
+                            value={enteredPassword}
+                            onChange={passwordInputChangeHandler}
+                            onBlur={passwordInputBlurHandler}
+                        />
+                        <div className={classes.term}>
+                            By creating an account you agree to the{' '}
+                            <TextLink text='Terms of Service' onClick={null} />{' '}
+                            and{' '}
+                            <TextLink text='Privacy Policy' onClick={null} />
+                        </div>
+                        {isLoading ? (
+                            <LoadingSpinner />
+                        ) : (
+                            <ElevatedButton
+                                text='Register'
+                                onClick={onSubmitForm}
+                                type='button'
+                                isDisabled={!isFormValid}
+                                className={classes.button}
+                            />
+                        )}
+                    </form>
+                </Col>
+            </Row>
+            <Row>
+                <Col>
+                    <div className={classes.switch}>
+                        Do you have an account?{' '}
+                        <TextLink
+                            text='Log In'
+                            onClick={navigateLogInHandler}
+                        />
+                    </div>
+                </Col>
             </Row>
         </Container>
     );

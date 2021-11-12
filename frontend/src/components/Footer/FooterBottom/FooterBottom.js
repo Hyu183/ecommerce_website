@@ -1,5 +1,6 @@
 import React from 'react';
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import FooterNav from '../FooterNav';
 
@@ -13,8 +14,8 @@ const FooterBottom = () => {
                     <FooterNav fontSize='12px' />
                 </Col>
                 <Col lg={3} className={`${classes.left} pe-0 ps-5`}>
-                    <a href='/'>Privacy Policy</a>
-                    <a href='/'>Terms & Conditions</a>
+                    <Link to='/'>Privacy Policy</Link>
+                    <Link to='/'>Terms & Conditions</Link>
                 </Col>
             </Row>
         </React.Fragment>

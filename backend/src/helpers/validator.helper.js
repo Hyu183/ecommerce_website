@@ -26,17 +26,19 @@ class ValidatorHelper {
 
     validateName = () => {
         const regex = /^([a-zA-Z ]){2,50}$/;
-        if (!this.body.name) {
+        const name = this.body.name;
+        if (!name.trim()) {
             this.addError({ name: 'name required' });
-        } else if (regex.test(this.body.name) === false) {
+        } else if (regex.test(name.trim()) === false) {
             this.addError({ name: 'name invalid' });
         }
     };
 
     validatePassword = () => {
-        if (!this.body.password) {
+        const password = this.body.password;
+        if (!password.trim()) {
             this.addError({ password: 'password required' });
-        } else if (this.body.password.length <= 6) {
+        } else if (password.trim().length <= 6) {
             this.addError({ password: 'password invalid' });
         }
     };

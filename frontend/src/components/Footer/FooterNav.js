@@ -1,4 +1,5 @@
 import { Row, Col } from 'react-bootstrap';
+import { Link } from 'react-router-dom';
 
 import classes from './FooterNav.module.css';
 
@@ -7,34 +8,34 @@ const FooterLink = (props) => {
     return (
         <Row className='justify-content-between'>
             <Col lg={1} className={classes.link}>
-                <a href='/' style={{ fontSize: fontSize }}>
+                <Link to='/' style={{ fontSize: fontSize }}>
                     Home
-                </a>
+                </Link>
             </Col>
             <Col lg={2} className={classes.link}>
-                <a href='/' style={{ fontSize: fontSize }}>
+                <Link to='/' style={{ fontSize: fontSize }}>
                     Products
-                </a>
+                </Link>
             </Col>
             <Col lg={2} className={classes.link}>
-                <a href='/' style={{ fontSize: fontSize }}>
+                <Link to='/' style={{ fontSize: fontSize }}>
                     Services
-                </a>
+                </Link>
             </Col>
             <Col lg={2} className={classes.link}>
-                <a href='/' style={{ fontSize: fontSize }}>
+                <Link to='/' style={{ fontSize: fontSize }}>
                     About Us
-                </a>
+                </Link>
             </Col>
             <Col lg={1} className={classes.link}>
-                <a href='/' style={{ fontSize: fontSize }}>
+                <Link to='/' style={{ fontSize: fontSize }}>
                     Help
-                </a>
+                </Link>
             </Col>
             <Col lg={2} className={classes.link}>
-                <a href='/' style={{ fontSize }}>
+                <Link to='/' style={{ fontSize: fontSize }}>
                     Contacts
-                </a>
+                </Link>
             </Col>
         </Row>
     );

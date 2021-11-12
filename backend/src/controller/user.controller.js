@@ -31,7 +31,7 @@ const registerUser = async (req, res) => {
             .status(400)
             .json({ success: 0, message: 'Invalid information' });
     }
-    console.log(user);
+
     const isEmailExisted = await userModel.checkEmailExisted(user.email);
 
     //email existed return
@@ -87,6 +87,7 @@ const loginUser = async (req, res) => {
     //generate JWT
     const token = JWT.generateJWT(user.id);
     await userModel.updateAccessToken(user.id, token);
+    
     return res.status(200).json({
         success: 1,
         message: 'Login successfully',
@@ -115,7 +116,9 @@ const resetPassword = async (req, res) => {
     validator.validateEmail();
 
     if (validator.hasError()) {
-        return res.status(400).json({ success: 0, message: 'Email invalid' });
+        return res
+            .status(400)
+            .json({ success: 0, message: 'Email is invalid' });
     }
 
     const user = await userModel.findUserByEmail(email);

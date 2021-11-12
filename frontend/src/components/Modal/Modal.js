@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from './Modal.module.css';
-// import { Dropdown } from 'react-bootstrap';
 
 const ModalElement = (props) => {
     return (
@@ -11,6 +11,8 @@ const ModalElement = (props) => {
             <div className={classes['modal-body']}>
                 <button
                     className={classes['button-close']}
+                    // onClick={props.onClose}
+                    // onClick={props.location.pathname}
                     onClick={props.onClose}
                 >
                     <FontAwesomeIcon icon='times' color='grey' size='lg' />

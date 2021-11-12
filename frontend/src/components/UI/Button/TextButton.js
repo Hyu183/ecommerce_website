@@ -1,8 +1,8 @@
 import { Button } from 'react-bootstrap';
 
-import classes from './TextButtonHeader.module.css';
+import classes from './TextButton.module.css';
 
-const TextButtonHeader = (props) => {
+const TextButton = (props) => {
     return (
         <Button
             variant='link'
@@ -14,4 +14,4 @@ const TextButtonHeader = (props) => {
     );
 };
 
-export default TextButtonHeader;
+export default TextButton;

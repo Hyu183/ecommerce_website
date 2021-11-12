@@ -2,6 +2,7 @@ import React from 'react';
 import { Row, Col, Container } from 'react-bootstrap';
 
 import Header from '../components/Header/Header';
+import NavBar from '../components/NavBar/NavBar';
 import Footer from '../components/Footer/Footer';
 import LargeBanner from '../components/Banner/LargeBanner';
 import SmallBanner from '../components/Banner/SmallBanner';
@@ -40,6 +41,7 @@ const Homepage = (props) => {
     return (
         <React.Fragment>
             <Header />
+            <NavBar />
 
             <Container className='mt-4 mb-4 p-0'>
                 <Row className='mb-4 '>
@@ -67,7 +69,6 @@ const Homepage = (props) => {
                     })}
                 </Row>
             </Container>
-
             <Footer />
         </React.Fragment>
     );

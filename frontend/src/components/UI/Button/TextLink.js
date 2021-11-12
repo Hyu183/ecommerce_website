@@ -1,11 +1,11 @@
 import classes from './TextLink.module.css';
 
 const TextLink = (props) => {
-    const { href, text } = props;
+    const { onClick, text } = props;
     return (
-        <a className={classes.a} href={href}>
+        <button className={classes.button} onClick={onClick}>
             {text}
-        </a>
+        </button>
     );
 };
 

@@ -1,14 +1,13 @@
 import { Button } from 'react-bootstrap';
 
-import classes from './OutlinedButtonHeader.module.css';
+import classes from './OutlinedButton.module.css';
 
-const OutlinedButtonHeader = (props) => {
+const OutlinedButton = (props) => {
     return (
         <Button
             className={classes['outlined-button']}
             variant='outline-primary'
-            // href={props.href}
-            onClick={props.handler}
+            onClick={props.onClick}
             size='md'
         >
             {props.text}
@@ -16,4 +15,4 @@ const OutlinedButtonHeader = (props) => {
     );
 };
 
-export default OutlinedButtonHeader;
+export default OutlinedButton;

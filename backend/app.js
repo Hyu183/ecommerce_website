@@ -1,10 +1,13 @@
 import express from 'express';
+import cors from 'cors';
 import { config } from 'dotenv';
 import router from './src/middlewares/routes.mdw.js';
 
 config();
 
 const app = express();
+
+app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
