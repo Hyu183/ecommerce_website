@@ -7,21 +7,36 @@ import {
     faSearch,
     faChevronDown,
     faChevronUp,
+    faChevronLeft,
+    faChevronRight,
     faTimes,
+    faShoppingCart,
 } from '@fortawesome/free-solid-svg-icons';
 
-import Homepage from './pages/Homepage';
+import HomePage from './pages/HomePage';
 import ProductListPage from './pages/ProductListPage';
+import AdminPage from './pages/AdminPage';
+
 import Modal from './components/Modal/Modal';
 import RegisterForm from './components/Form/RegisterForm';
 import LoginForm from './components/Form/LoginForm';
 import ForgetPasswordForm from './components/Form/ForgetPasswordForm';
+import ScrollToTop from './components/UI/ScrollToTop/ScrollToTop';
 
 import modalShowContext from './contexts/modalShowContext';
 
 import 'material-react-toastify/dist/ReactToastify.css';
 
-library.add(fab, faSearch, faChevronDown, faChevronUp, faTimes);
+library.add(
+    fab,
+    faSearch,
+    faChevronDown,
+    faChevronUp,
+    faTimes,
+    faShoppingCart,
+    faChevronLeft,
+    faChevronRight
+);
 
 function App() {
     const modalShowCtx = useContext(modalShowContext);
@@ -30,13 +45,11 @@ function App() {
         <React.Fragment>
             <ToastContainer />
             <Router>
+                <ScrollToTop />
                 <Routes>
-                    <Route exact path='/' element={<Homepage />} />
-                    <Route
-                        exact
-                        path='/products'
-                        element={<ProductListPage />}
-                    />
+                    <Route exact path='/' element={<HomePage />} />
+                    <Route path='/products' element={<ProductListPage />} />
+                    <Route path='/admin/*' element={<AdminPage />} />
                 </Routes>
             </Router>
             {modalShowCtx.showLogIn && (

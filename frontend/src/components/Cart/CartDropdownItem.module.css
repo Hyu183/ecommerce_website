@@ -1,0 +1,34 @@
+.container {
+    border-bottom: 1px solid #ececec;
+}
+
+.productName {
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+}
+
+.productPrice {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+}
+
+.productDetail {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    text-align: right;
+    color: var(--brown-grey);
+}

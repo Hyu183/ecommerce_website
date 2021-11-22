@@ -1,7 +1,7 @@
 import { FormControl, Stack } from 'react-bootstrap';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 import classes from './SearchBar.module.css';
+import searchIcon from '../../../assets/search.svg';
 
 const SearchBar = () => {
     return (
@@ -11,10 +11,11 @@ const SearchBar = () => {
                 placeholder='Search'
                 type='text'
             />
-
-            <a href='/'>
-                <FontAwesomeIcon icon='search' color='grey' size='lg' />
-            </a>
+            <img
+                className={classes['search-icon']}
+                src={searchIcon}
+                alt='Search'
+            />            
         </Stack>
     );
 };

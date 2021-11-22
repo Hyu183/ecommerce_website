@@ -1,8 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from './Modal.module.css';
+import crossIcon from '../../assets/cross.svg';
 
 const ModalElement = (props) => {
     return (
@@ -15,7 +15,8 @@ const ModalElement = (props) => {
                     // onClick={props.location.pathname}
                     onClick={props.onClose}
                 >
-                    <FontAwesomeIcon icon='times' color='grey' size='lg' />
+                    <img src={crossIcon} alt='Close' />
+                    {/* <FontAwesomeIcon icon='times' color='grey' size='lg' /> */}
                 </button>
                 {props.children}
             </div>

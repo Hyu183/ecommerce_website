@@ -18,12 +18,9 @@
     position: absolute;
     bottom: 10%;
     right: 10%;
-    color: var(--white);
     height: 50px;
     font-size: 1.6rem;
 }
 .button:hover {
-    /* color: var(--white); */
-
     background-color: var(--pumpkin-orange);
 }

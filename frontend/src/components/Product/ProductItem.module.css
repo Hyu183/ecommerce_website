@@ -1,6 +1,27 @@
 .container {
     height: 345px;
+    padding: 0;
 }
+
+.image {
+    position: relative;
+}
+
+.button {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 16px 40px;
+}
+
+.badge {
+    position: absolute;
+    left: -4px;
+    bottom: 7px;
+}
+
 
 .product-name {
     font-size: 1.4rem;

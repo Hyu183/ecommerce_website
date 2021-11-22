@@ -24,6 +24,7 @@ const ForgetPasswordForm = (props) => {
     const {
         value: enteredEmail,
         isValid: enteredEmailIsValid,
+
         hasError: enteredEmailHasError,
         valueChangeHandler: emailInputChangeHandler,
         inputBlurHandler: emailInputBlurHandler,
@@ -39,7 +40,7 @@ const ForgetPasswordForm = (props) => {
         setErrorText('');
 
         const user = {
-            email: enteredEmail,
+            email: enteredEmail.trim(),
         };
         //send request
         userApi
@@ -60,7 +61,7 @@ const ForgetPasswordForm = (props) => {
             .catch((error) => {
                 setIsLoading(false);
                 const errorResponse = error.response;
-                if (errorResponse.status === 400) {
+                if (errorResponse && errorResponse.status === 400) {
                     //reset fail
                     setErrorText(errorResponse.data.message);
                 } else {

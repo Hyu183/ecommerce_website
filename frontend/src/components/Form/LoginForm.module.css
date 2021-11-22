@@ -63,3 +63,7 @@
 .forgot-button:hover {
     color: var(--pale-orange);
 }
+
+.toast-text {
+    font-size: 1.4rem;
+}

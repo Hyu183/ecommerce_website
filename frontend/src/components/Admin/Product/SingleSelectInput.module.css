@@ -1,0 +1,12 @@
+.inputContainer {
+    padding: 12px 0;
+}
+.inputLabel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}

@@ -11,6 +11,7 @@ const Input = (props) => {
         onBlur,
         isValid,
         errText,
+        
     } = props;
 
     const inputClassName =

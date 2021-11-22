@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import classes from './NavBarDropdown.module.css';
@@ -13,33 +14,40 @@ const NavBarDropdown = (props) => {
         <FontAwesomeIcon icon='chevron-down' size='sm' />
     );
 
-    const dropdownContent = isDropped ? (
-        <div
-            className={classes['dropdown-content']}
-            onMouseLeave={() => setIsDropped(!isDropped)}
-        >
-            {subCatList.map((subCat, index) => {
-                return (
-                    <a key={index} href={`/${subCat}`}>
-                        {subCat}
-                    </a>
-                );
-            })}
-        </div>
-    ) : (
-        ''
-    );
-
     return (
-        <div className={classes['dropdown']}>
+        <div
+            className={classes['dropdown']}
+            onMouseLeave={() => setIsDropped(false)}
+        >
             <button
                 className={classes['dropdown-btn']}
-                onClick={() => setIsDropped(!isDropped)}
+                onClick={() => setIsDropped((prevVal) => !prevVal)}
+                onMouseEnter={() => setIsDropped(true)}
             >
                 <span>{mainCat} </span>
                 {arrowIcon}
             </button>
-            {dropdownContent}
+            {isDropped && (
+                <div className={classes['dropdown-content-wrapper']}>
+                    <ul
+                        className={classes['dropdown-content']}
+                        // onMouseLeave={() => setIsDropped(!isDropped)}
+                    >
+                        {subCatList.map((subCat) => {
+                            return (
+                                <li key={subCat.id}>
+                                    <Link
+                                        className={classes['dropdown-item']}
+                                        to={`/${mainCat.toLowerCase()}/${subCat.name.toLowerCase()}`}
+                                    >
+                                        {subCat.name}
+                                    </Link>
+                                </li>
+                            );
+                        })}
+                    </ul>
+                </div>
+            )}
         </div>
     );
 };

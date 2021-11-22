@@ -1,0 +1,27 @@
+.breadcrumb {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--dark-grey);
+}
+
+.category {
+    font-size: 1.6rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.gridContainer {
+    display: grid;
+    grid-gap: 20px 20px;
+    grid-template-columns: auto auto auto auto auto;
+}

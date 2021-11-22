@@ -55,9 +55,9 @@ const RegisterForm = (props) => {
             return;
         }
         const user = {
-            name: enteredName,
-            email: enteredEmail,
-            password: enteredPassword,
+            name: enteredName.trim(),
+            email: enteredEmail.trim(),
+            password: enteredPassword.trim(),
         };
         //set effect
         setIsLoading(true);
@@ -82,7 +82,7 @@ const RegisterForm = (props) => {
             .catch((error) => {
                 setIsLoading(false);
                 const errorResponse = error.response;
-                if (errorResponse.status === 400) {
+                if (errorResponse && errorResponse.status === 400) {
                     //register fail
                     setErrorText(errorResponse.data.message);
                 } else {

@@ -1,13 +1,69 @@
-a {
+.dropdown {
+    position: relative;
+}
+
+.cart {
     text-decoration: none;
+    /* position: relative; */
+}
+.icon {
+    font-size: 2rem;
+    color: black;
 }
 
 .badge {
+    position: absolute;
+    top: -12px;
+    left: 10px;
     font-size: 1.2rem;
     background: var(--pale-orange);
     color: #fff;
-    padding: 1px 5px;
-    vertical-align: top;
-    margin-left: -15px;
-    border-radius: 100px;
+    height: 22px;
+    width: 22px;
+    line-height: 22px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+.dropdownWrapper {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    padding-top: 22px;
+    width: 300px;
+    z-index: 1;
+}
+
+.dropdownContent {
+    box-shadow: 0 14px 30px 0 rgba(0, 0, 0, 0.14);
+    border: solid 0.5px var(--white-six);
+    background-color: var(--white-five);
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+    cursor: default;
+}
+/* 
+.listItem:hover {
+    background-color: var(--white-six);
+} */
+
+.viewCart {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--white-five);
+    height: 70px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    cursor: pointer;
+    color: var(--pale-orange);
+}
+
+.viewCart:hover {
+    background-color: var(--white-six);
 }

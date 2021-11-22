@@ -15,23 +15,25 @@
     font-style: normal;
     line-height: 1.57;
     letter-spacing: normal;
-    border: solid 2px;
+    border: solid 1px;
     outline: none;
     padding: 10px 0 10px 24px;
     width: 100%;
 }
 
 .input--valid {
+    border: solid 1px;
     border-color: var(--greyish-two);
     background-color: var(--white-two);
 }
+
 .input--invalid {
     border-color: var(--strawberry);
     background-color: rgba(246, 63, 69, 0.04);
 }
 
 .input::placeholder {
-    color: var(--greyish-brown);
+    color: var(--greyish-brown-30);
 }
 
 .label {

@@ -10,34 +10,34 @@ import SmallBanner from '../components/Banner/SmallBanner';
 const list = [
     {
         id: 1,
-        imgUrl: 'https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2021/10/04142003/jisoo-dior-paris-fashion-week-hero.jpg',
+        imgUrl: 'https://macailabritton.com/wp-content/uploads/2018/12/Men27s2BFashion2BStreet2BStyle.jpg',
         href: '/',
         text: 'Men',
     },
     {
         id: 2,
-        imgUrl: 'https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2021/10/04142003/jisoo-dior-paris-fashion-week-hero.jpg',
+        imgUrl: 'https://stylesatlife.com/wp-content/uploads/2021/04/High-Low-Maroon-Party-Dress.jpg',
         href: '/',
         text: 'Ladies',
     },
     {
         id: 3,
-        imgUrl: 'https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2021/10/04142003/jisoo-dior-paris-fashion-week-hero.jpg',
+        imgUrl: 'https://i.pinimg.com/originals/75/b9/aa/75b9aab00ebaa0fa70d3b96a3f266181.jpg',
         href: '/',
         text: 'Girls',
     },
     {
         id: 4,
-        imgUrl: 'https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2021/10/04142003/jisoo-dior-paris-fashion-week-hero.jpg',
+        imgUrl: 'https://i.pinimg.com/originals/53/97/d7/5397d77c08b4f3566c0b94894a150060.jpg',
         href: '/',
         text: 'Boys',
     },
 ];
 
 const url =
-    'https://cdn.lifestyleasia.com/wp-content/uploads/sites/6/2021/10/04142003/jisoo-dior-paris-fashion-week-hero.jpg';
+    'https://www.fashiongonerogue.com/wp-content/uploads/2018/07/Bally-Fall-Winter-2018-Campaign03.jpg';
 
-const Homepage = (props) => {
+const HomePage = (props) => {
     return (
         <React.Fragment>
             <Header />
@@ -74,4 +74,4 @@ const Homepage = (props) => {
     );
 };
 
-export default Homepage;
+export default HomePage;

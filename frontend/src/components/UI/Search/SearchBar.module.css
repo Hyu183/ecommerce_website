@@ -23,6 +23,5 @@
 }
 
 .search-icon {
-    color: var(--greyish-two);
-    fill: var(--greyish-two);
+    opacity: 0.6;
 }

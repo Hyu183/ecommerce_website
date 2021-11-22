@@ -13,4 +13,13 @@ const validatePassword = (password) => {
     return password.trim().length > 6;
 };
 
-export { validateEmail, validateName, validatePassword };
+const validatePrice = (price) => {};
+const validateQuantity = (quantity) => {};
+
+export {
+    validateEmail,
+    validateName,
+    validatePassword,
+    validatePrice,
+    validateQuantity,
+};

@@ -12,7 +12,7 @@ const SmallBanner = (props) => {
                 height: '406px',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
+                // backgroundPosition: 'center',
             }}
         >
             <div className={classes.child}>

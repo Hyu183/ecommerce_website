@@ -52,6 +52,7 @@
     --bright-orange: #ff6900;
     --apricot: #ffc371;
     --greyish-brown: #4d4d4d;
+    --greyish-brown-30: rgba(77, 77, 77,0.3)  ;
     --pinkish-grey: #ccc;
     --greyish: #acacac;
     --cornflower-50: rgba(95, 109, 255, 0.5);
@@ -73,7 +74,6 @@ html {
     height: 100vh;
     width: 100%;
     font-size: 10px;
-    overflow-x: hidden;
 }
 
 *::selection {

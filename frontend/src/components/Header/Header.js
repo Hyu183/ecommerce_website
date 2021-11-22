@@ -22,11 +22,21 @@ const Header = () => {
 
     const isLoggedIn = authCtx.isLoggedIn;
 
-    const showSettingsHandler = () => {
+    const onClickAvatarHandler = () => {
+        setShowSettings((prevVal) => !prevVal);
+    };
+
+    const onMouseEnterAvatarHandler = () => {
         setShowSettings(true);
     };
-    const hideSettingsHandler = () => {
+
+    const onMouseLeaveAvatarHandler = () => {
         setShowSettings(false);
+    };
+
+    const OnClickDropdownItemHandler = (extraHandler) => {
+        setShowSettings(false);
+        extraHandler && extraHandler();
     };
 
     return (
@@ -45,31 +55,64 @@ const Header = () => {
                         sm={12}
                         md='auto'
                         lg={isLoggedIn ? '2' : 'auto'}
-                        className='d-flex justify-content-end align-items-center mt-2'
+                        className='d-flex justify-content-end align-items-center '
                     >
                         {isLoggedIn ? (
                             <div className='d-flex justify-content-end'>
-                                <div className={classes.dropdown}>
+                                <div
+                                    className={classes.dropdown}
+                                    onMouseLeave={onMouseLeaveAvatarHandler}
+                                >
                                     <img
                                         className={classes.avatar}
                                         src={avatar} // src={props.avatarUrl}
                                         alt='Avatar'
-                                        onClick={showSettingsHandler}
+                                        onClick={onClickAvatarHandler}
+                                        onMouseEnter={onMouseEnterAvatarHandler}
                                     />
                                     {showSettings && (
                                         <div
                                             className={
-                                                classes['dropdown-content']
+                                                classes[
+                                                    'dropdown-content-wrapper'
+                                                ]
                                             }
-                                            onMouseLeave={hideSettingsHandler}
                                         >
-                                            <button>Account setting</button>
-                                            <div
-                                                className={classes.divider}
-                                            ></div>
-                                            <button onClick={authCtx.logout}>
-                                                Logout
-                                            </button>
+                                            <ul
+                                                className={
+                                                    classes['dropdown-content']
+                                                }
+                                            >
+                                                <li>
+                                                    <button
+                                                        onClick={() =>
+                                                            OnClickDropdownItemHandler(
+                                                                null
+                                                            )
+                                                        }
+                                                    >
+                                                        Account setting
+                                                    </button>
+                                                </li>
+                                                <li>
+                                                    <div
+                                                        className={
+                                                            classes.divider
+                                                        }
+                                                    ></div>
+                                                </li>
+                                                <li>
+                                                    <button
+                                                        onClick={() =>
+                                                            OnClickDropdownItemHandler(
+                                                                authCtx.logout
+                                                            )
+                                                        }
+                                                    >
+                                                        Logout
+                                                    </button>
+                                                </li>
+                                            </ul>
                                         </div>
                                     )}
                                 </div>
@@ -86,7 +129,7 @@ const Header = () => {
                                 />
                             </React.Fragment>
                         )}
-                        <CartIcon productCount={7} />
+                        <CartIcon productCount={1} />
                     </Col>
                 </Row>
             </Container>

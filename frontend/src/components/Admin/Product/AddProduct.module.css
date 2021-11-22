@@ -1,0 +1,55 @@
+.inputDescriptionContainer {
+    padding: 12px 0;
+}
+
+.inputDescription {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.inputTextArea {
+    width: 780px;
+    border-radius: 2px;
+    border: solid 1px var(--white-three);
+    background-color: var(--white);
+    outline: none;
+    width: 780px;
+    padding-left: 16px;
+    padding-top: 14px;
+    padding-bottom: 14px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: var(--charcoal-grey);
+    resize: none;
+}
+
+.cancelButton {
+    border-radius: 2px;
+    border: solid 1px var(--white-three);
+    background-color: var(--white);
+    width: 180px;
+    height: 47px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.71;
+    letter-spacing: normal;
+    color: var(--pale-orange);
+}
+
+.buttonContainer {
+    padding-top: 40px;
+    justify-content: end;
+    margin-right: 55px;
+    margin-bottom: 80px;
+}

@@ -1,5 +1,6 @@
 import { Container, Row, Col } from 'react-bootstrap';
 import React, { useState, useContext } from 'react';
+import { toast } from 'material-react-toastify';
 
 import classes from './LoginForm.module.css';
 
@@ -46,8 +47,8 @@ const LoginForm = (props) => {
         }
 
         const user = {
-            email: enteredEmail,
-            password: enteredPassword,
+            email: enteredEmail.trim(),
+            password: enteredPassword.trim(),
         };
         //set effect
         setIsLoading(true);
@@ -60,13 +61,22 @@ const LoginForm = (props) => {
                 setIsLoading(false);
 
                 authCtx.login(res.data.token, res.data.user);
+                toast.success('Login successfully!', {
+                    position: 'top-right',
+                    autoClose: 1000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    className: classes['toast-text'],
+                });
                 onLoggedIn();
             })
             .catch((error) => {
                 setIsLoading(false);
                 const errorResponse = error.response;
 
-                if (errorResponse.status === 400) {
+                if (errorResponse && errorResponse.status === 400) {
                     //login fail
                     setErrorText('Your e-mail/password is invalid!');
                 } else {
@@ -114,7 +124,7 @@ const LoginForm = (props) => {
                             <Col>
                                 <CheckBox
                                     id='remember'
-                                    value={true}
+                                    // value={true}
                                     label='Remember password'
                                 />
                             </Col>

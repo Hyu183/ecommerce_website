@@ -14,8 +14,12 @@ const FooterBottom = () => {
                     <FooterNav fontSize='12px' />
                 </Col>
                 <Col lg={3} className={`${classes.left} pe-0 ps-5`}>
-                    <Link to='/'>Privacy Policy</Link>
-                    <Link to='/'>Terms & Conditions</Link>
+                    <Link to='/' style={{ textDecoration: 'none' }}>
+                        Privacy Policy
+                    </Link>
+                    <Link to='/' style={{ textDecoration: 'none' }}>
+                        Terms & Conditions
+                    </Link>
                 </Col>
             </Row>
         </React.Fragment>

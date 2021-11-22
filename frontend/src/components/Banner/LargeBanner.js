@@ -12,7 +12,7 @@ const LargeBanner = (props) => {
                 height: '514px',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                backgroundPosition: 'center',
+                // backgroundPosition: 'center',
             }}
         >
             <div className={classes['large-text']}>Outfit of the week</div>
@@ -23,9 +23,6 @@ const LargeBanner = (props) => {
                 type='button'
                 isDisabled={false}
             />
-            {/* <Button size='lg' className={classes.button} href={props.href}>
-                Shop now
-            </Button> */}
         </div>
     );
 };

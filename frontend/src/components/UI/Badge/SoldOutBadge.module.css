@@ -1,0 +1,13 @@
+.container {
+    width: 60px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.5;
+    letter-spacing: normal;
+    color: var(--white);
+    background-color: #808080;
+    text-align: center;
+    padding: 3px 2px;
+}
