@@ -1,7 +1,8 @@
 import express from 'express';
 import cors from 'cors';
 import { config } from 'dotenv';
-import router from './src/middlewares/routes.mdw.js';
+import morgan from 'morgan';
+import router from './routes.js';
 
 config();
 
@@ -11,6 +12,10 @@ app.use(cors({ origin: 'http://localhost:3000' }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static('public'));
+
+//dev
+app.use(morgan('dev'));
 
 //add router
 router(app);

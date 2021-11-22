@@ -1,6 +1,6 @@
 import * as JWT from '../helpers/jwt.helper.js';
 import { config } from 'dotenv';
-import { findUserByID } from '../models/user.model.js';
+import { findUserByID } from '../dao/user.dao.js';
 
 //load .env
 config();
@@ -11,7 +11,7 @@ const jwtMiddleware = async (req, res, next) => {
         const authorization = req.headers.authorization;
         const access_token = authorization.split(' ')[1];
 
-        //include id, email and name of user
+        //include id of user
         const verifiedUser = JWT.verifyJWT(access_token);
 
         let user = await findUserByID(verifiedUser.id);

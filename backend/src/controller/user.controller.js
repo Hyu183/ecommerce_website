@@ -2,7 +2,7 @@ import { config } from 'dotenv';
 import bcrypt from 'bcryptjs';
 import generator from 'generate-password';
 
-import * as userModel from '../models/user.model.js';
+import * as userDAO from '../dao/user.dao.js';
 
 import ValidatorHelper from '../helpers/validator.helper.js';
 import * as JWT from '../helpers/jwt.helper.js';
@@ -32,7 +32,7 @@ const registerUser = async (req, res) => {
             .json({ success: 0, message: 'Invalid information' });
     }
 
-    const isEmailExisted = await userModel.checkEmailExisted(user.email);
+    const isEmailExisted = await userDAO.checkEmailExisted(user.email);
 
     //email existed return
     if (isEmailExisted) {
@@ -47,7 +47,7 @@ const registerUser = async (req, res) => {
         +process.env.SALT_ROUNDS
     );
     user = { ...user, password: hashedPassword };
-    await userModel.create(user);
+    await userDAO.create(user);
 
     return res
         .status(200)
@@ -68,7 +68,7 @@ const loginUser = async (req, res) => {
             .json({ success: 0, message: 'Invalid information' });
     }
 
-    const user = await userModel.findUserByEmail(email);
+    const user = await userDAO.findUserByEmail(email);
     if (user === null) {
         return res
             .status(400)
@@ -86,8 +86,8 @@ const loginUser = async (req, res) => {
     };
     //generate JWT
     const token = JWT.generateJWT(user.id);
-    await userModel.updateAccessToken(user.id, token);
-    
+    await userDAO.updateAccessToken(user.id, token);
+
     return res.status(200).json({
         success: 1,
         message: 'Login successfully',
@@ -105,7 +105,7 @@ const loginUser = async (req, res) => {
 const checkEmailExisted = async (req, res) => {
     const email = req.query.email;
     console.log(email);
-    const isEmailExisted = await userModel.checkEmailExisted(email);
+    const isEmailExisted = await userDAO.checkEmailExisted(email);
     console.log(isEmailExisted);
     return res.send(isEmailExisted);
 };
@@ -121,7 +121,7 @@ const resetPassword = async (req, res) => {
             .json({ success: 0, message: 'Email is invalid' });
     }
 
-    const user = await userModel.findUserByEmail(email);
+    const user = await userDAO.findUserByEmail(email);
     if (user === null) {
         return res
             .status(400)
@@ -133,7 +133,7 @@ const resetPassword = async (req, res) => {
         newPassword,
         +process.env.SALT_ROUNDS
     );
-    await userModel.updatePassword(user.id, hashedPassword);
+    await userDAO.updatePassword(user.id, hashedPassword);
     sendMail(
         email,
         user.name,
