@@ -1,9 +1,13 @@
+import { useNavigate } from 'react-router-dom';
 import ElevatedButton from '../UI/Button/ElevatedButton';
 import classes from './SmallBanner.module.css';
 
 const SmallBanner = (props) => {
-    const { imgUrl, text } = props; //href,
-
+    const { imgUrl, text, href } = props;
+    const navigate = useNavigate();
+    const onClickHandler = () => {
+        navigate(href);
+    };
     return (
         <div
             className={classes.container}
@@ -12,7 +16,6 @@ const SmallBanner = (props) => {
                 height: '406px',
                 backgroundSize: 'cover',
                 backgroundRepeat: 'no-repeat',
-                // backgroundPosition: 'center',
             }}
         >
             <div className={classes.child}>
@@ -23,10 +26,8 @@ const SmallBanner = (props) => {
                     text='Shop now'
                     type='button'
                     isDisabled={false}
+                    onClick={onClickHandler}
                 />
-                {/* <Button size='sm' className={classes.button} href={href}>
-                    Shop now
-                </Button> */}
             </div>
         </div>
     );

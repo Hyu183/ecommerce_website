@@ -1,6 +1,11 @@
 import React, { useContext } from 'react';
 import { ToastContainer } from 'material-react-toastify';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import {
+    BrowserRouter as Router,
+    Routes,
+    Route,
+    Navigate,
+} from 'react-router-dom';
 import { library } from '@fortawesome/fontawesome-svg-core';
 import { fab } from '@fortawesome/free-brands-svg-icons';
 import {
@@ -15,7 +20,9 @@ import {
 
 import HomePage from './pages/HomePage';
 import ProductListPage from './pages/ProductListPage';
+import ProductDetailPage from './pages/ProductDetailPage';
 import AdminPage from './pages/AdminPage';
+import CartPage from './pages/CartPage';
 
 import Modal from './components/Modal/Modal';
 import RegisterForm from './components/Form/RegisterForm';
@@ -48,8 +55,17 @@ function App() {
                 <ScrollToTop />
                 <Routes>
                     <Route exact path='/' element={<HomePage />} />
-                    <Route path='/products' element={<ProductListPage />} />
+                    <Route exact path='/cart' element={<CartPage />} />
+                    <Route
+                        path='/products/:catID'
+                        element={<ProductListPage />}
+                    />
+                    <Route
+                        path='/product/:proID'
+                        element={<ProductDetailPage />}
+                    />
                     <Route path='/admin/*' element={<AdminPage />} />
+                    <Route path='*' element={<Navigate replace to='/' />} />
                 </Routes>
             </Router>
             {modalShowCtx.showLogIn && (

@@ -1,0 +1,36 @@
+.title {
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+    margin-bottom: 9px;
+}
+
+.colorContainer {
+    display: flex;
+    min-width: 50px;
+}
+
+.color {
+    border-radius: 50px;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+.colorUnSelected {
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+}
+
+.colorSelected {
+    border-radius: 50px;
+    border: 2px solid grey;
+    padding: -2px;
+    margin-right: 20px;
+    width: 30px;
+    height: 30px;
+}

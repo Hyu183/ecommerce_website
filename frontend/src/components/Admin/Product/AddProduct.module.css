@@ -13,12 +13,11 @@
 }
 
 .inputTextArea {
-    width: 780px;
+    width: 100%;
     border-radius: 2px;
     border: solid 1px var(--white-three);
     background-color: var(--white);
     outline: none;
-    width: 780px;
     padding-left: 16px;
     padding-top: 14px;
     padding-bottom: 14px;
@@ -52,4 +51,8 @@
     justify-content: end;
     margin-right: 55px;
     margin-bottom: 80px;
+}
+
+.toast-text {
+    font-size: 1.6rem;
 }

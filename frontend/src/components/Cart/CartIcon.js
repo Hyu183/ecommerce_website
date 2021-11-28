@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-
+import React, { useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 
 import classes from './CartIcon.module.css';
@@ -8,50 +7,11 @@ import cartIcon from '../../assets/cart.svg';
 
 import CartDropdownItem from './CartDropdownItem';
 
-const listCartItem = [
-    {
-        id: '1',
-        prodImgUrl:
-            'https://i.ebayimg.com/images/g/qkcAAOSwzMhbn7lM/s-l300.jpg',
-        prodName: "New Balance Men's Street Backpack",
-        prodPrice: 485,
-        prodSize: 'XXL',
-        prodColor: 'Orange',
-        prodAmount: 89,
-    },
-    {
-        id: '2',
-        prodImgUrl:
-            'https://i.ebayimg.com/images/g/qkcAAOSwzMhbn7lM/s-l300.jpg',
-        prodName: "New Balance Men's Street Backpack",
-        prodPrice: 45,
-        prodSize: 'S',
-        prodColor: 'White',
-        prodAmount: 3,
-    },
-    {
-        id: '3',
-        prodImgUrl:
-            'https://i.ebayimg.com/images/g/qkcAAOSwzMhbn7lM/s-l300.jpg',
-        prodName: "New Balance Men's Street Backpack",
-        prodPrice: 485,
-        prodSize: 'XXL',
-        prodColor: 'Orange',
-        prodAmount: 89,
-    },
-];
+import cartContext from '../../contexts/cartContext';
 
-const calculateProdCount = (listCart) => {
-    let count = 0;
-    listCart.forEach((element) => {
-        count += element.prodAmount;
-    });
-    return count;
-};
-
-const CartIcon = (props) => {
+const CartIcon = () => {
+    const cartCtx = useContext(cartContext);
     const [showCart, setShowCart] = useState(false);
-    const prodCount = calculateProdCount(listCartItem);
 
     const onMouseEnterHandler = () => {
         setShowCart(true);
@@ -70,26 +30,43 @@ const CartIcon = (props) => {
             >
                 <img src={cartIcon} alt='Cart' />
 
-                <span className={classes.badge}>{prodCount}</span>
+                {cartCtx.items.length !== 0 && (
+                    <span className={classes.badge}>
+                        {cartCtx.totalProduct()}
+                    </span>
+                )}
             </Link>
             {showCart && (
                 <div className={classes.dropdownWrapper}>
-                    <ul className={classes.dropdownContent}>
-                        {listCartItem.map((item) => {
-                            return (
-                                <li key={item.id} className={classes.listItem}>
-                                    <CartDropdownItem
-                                        prodImgUrl={item.prodImgUrl}
-                                        prodName={item.prodName}
-                                        prodPrice={item.prodPrice}
-                                        prodSize={item.prodSize}
-                                        prodColor={item.prodColor}
-                                        prodAmount={item.prodAmount}
-                                    />
-                                </li>
-                            );
-                        })}
-                    </ul>
+                    {cartCtx.items.length === 0 ? (
+                        <div className={classes.noItem}>
+                            <span className={classes.noItemText}>
+                                No product added
+                            </span>
+                        </div>
+                    ) : (
+                        <ul className={classes.dropdownContent}>
+                            {cartCtx.items.map((item) => {
+                                return (
+                                    <li
+                                        key={item.id}
+                                        className={classes.listItem}
+                                    >
+                                        <CartDropdownItem
+                                            prodImgUrl={item.thumbnailUrl}
+                                            prodName={item.productName}
+                                            prodPrice={
+                                                item.price * item.quantity
+                                            }
+                                            prodSize={item.size.name}
+                                            prodColor={item.color.name}
+                                            prodAmount={item.quantity}
+                                        />
+                                    </li>
+                                );
+                            })}
+                        </ul>
+                    )}
 
                     <Link to='/cart' style={{ textDecoration: 'none' }}>
                         <div className={classes.viewCart}>View cart</div>

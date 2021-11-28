@@ -29,16 +29,13 @@ const NavBarDropdown = (props) => {
             </button>
             {isDropped && (
                 <div className={classes['dropdown-content-wrapper']}>
-                    <ul
-                        className={classes['dropdown-content']}
-                        // onMouseLeave={() => setIsDropped(!isDropped)}
-                    >
+                    <ul className={classes['dropdown-content']}>
                         {subCatList.map((subCat) => {
                             return (
                                 <li key={subCat.id}>
                                     <Link
                                         className={classes['dropdown-item']}
-                                        to={`/${mainCat.toLowerCase()}/${subCat.name.toLowerCase()}`}
+                                        to={`/products/${subCat.id}`}
                                     >
                                         {subCat.name}
                                     </Link>

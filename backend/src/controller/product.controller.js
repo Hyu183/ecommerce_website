@@ -26,11 +26,14 @@ const addProduct = (req, res) => {
                 // An unknown error occurred when uploading.
                 return res.status(400).json({ success: 0, message: err });
             }
-            //new Date().toISOString().slice(0, 19).replace('T', ' ')
+            console.log(req.files);
+            console.log(req.body);
+
             // Everything went fine
             const fileNames = req.files.map((file) => {
                 return process.env.IMAGE_URL + file.filename;
             });
+
             const product = new Product(req.body, fileNames[0]);
             console.log(product);
             //insert product
@@ -39,7 +42,7 @@ const addProduct = (req, res) => {
             //insert product_category
             const categoryData = mappingProductCategory(
                 productID,
-                req.body.categories
+                JSON.parse(req.body.categories)
             );
 
             //insert product_imgUrl
@@ -49,10 +52,16 @@ const addProduct = (req, res) => {
             );
 
             //insert product_color
-            const colorData = mappingProductColors(productID, req.body.colors);
+            const colorData = mappingProductColors(
+                productID,
+                JSON.parse(req.body.colors)
+            );
 
             //insert product_size
-            const sizeData = mappingProductSizes(productID, req.body.sizes);
+            const sizeData = mappingProductSizes(
+                productID,
+                JSON.parse(req.body.sizes)
+            );
             Promise.all([
                 productDAO.addCategory(categoryData),
                 productDAO.addImgUrl(imageUrlData),
@@ -112,8 +121,8 @@ const getProduct = async (req, res) => {
         productDAO.getRelateProduct(prodID, 8), //limit 8, random
     ])
         .then((result) => {
-            const color = result[2].map((res) => res.color_id);
-            const size = result[3].map((res) => res.size_id);
+            const color = result[2];
+            const size = result[3];
             const productDetail = {
                 productInfor: product,
                 brand: result[0],
@@ -138,9 +147,9 @@ const getProduct = async (req, res) => {
 
 const getProductListBySecondCat = async (req, res) => {
     const catID = req.params.catIDlv1;
-    const page = req.query.page || 0;
+    const page = req.query.page || 1;
     const limit = 20;
-    const offset = page * limit;
+    const offset = (page - 1) * limit;
     const isCatIDExist = await categoryDAO.checkCatIDExist(catID);
     if (!isCatIDExist) {
         return res
@@ -158,10 +167,8 @@ const getProductListBySecondCat = async (req, res) => {
         productList.map(async (product) => {
             const color = await productDAO.getProductColor(product.id);
             const size = await productDAO.getProductSize(product.id);
-            const colorID = color.map((e) => e.color_id);
-            const sizeID = size.map((e) => e.size_id);
 
-            return { ...product, color: colorID, size: sizeID };
+            return { ...product, color, size };
         })
     );
 
@@ -171,9 +178,9 @@ const getProductListBySecondCat = async (req, res) => {
 };
 const getProductListByThirdCat = async (req, res) => {
     const catID = req.params.catIDlv0;
-    const page = req.query.page || 0;
+    const page = req.query.page || 1;
     const limit = 20;
-    const offset = page * limit;
+    const offset = (page - 1) * limit;
     const isCatIDExist = await categoryDAO.checkCatIDExist(catID);
     if (!isCatIDExist) {
         return res
@@ -191,10 +198,8 @@ const getProductListByThirdCat = async (req, res) => {
         productList.map(async (product) => {
             const color = await productDAO.getProductColor(product.id);
             const size = await productDAO.getProductSize(product.id);
-            const colorID = color.map((e) => e.color_id);
-            const sizeID = size.map((e) => e.size_id);
 
-            return { ...product, color: colorID, size: sizeID };
+            return { ...product, color, size };
         })
     );
     return res
@@ -207,16 +212,15 @@ const getProductList = async (req, res) => {
     const limit = 10;
     const offset = page * limit;
     const total = await productDAO.countAll();
-
+    // console.log(total);
     const products = await productDAO.getAll(limit, offset);
     const productWithCatName = await Promise.all(
         products.map(async (product) => {
             const categories = await productDAO.getCatName(product.id);
-            console.log(categories);
+            // console.log(categories);
             return { ...product, categories };
         })
     );
-   
 
     return res
         .status(200)

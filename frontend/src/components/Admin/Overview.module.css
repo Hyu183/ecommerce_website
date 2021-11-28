@@ -1,0 +1,18 @@
+.headerText {
+    font-size: 2.8rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.29;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.headerRight {
+    display: flex;
+}
+
+.headerIcon {
+    margin-left: 33px;
+    cursor: pointer;
+}

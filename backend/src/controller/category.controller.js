@@ -16,9 +16,15 @@ const getCategory = async (req, res) => {
 
 const getSubCategory = async (req, res) => {
     const catID = req.params.catIDlv2;
-    const subCat = await categoryDAO.getThirdCategory(catID);
-    console.log(subCat);
-    return res.status(200).json({ success: 1, subCat: subCat });
+    const isExist = await categoryDAO.checkCatLv2Exist(catID);
+    if (!isExist) {
+        return res
+            .status(400)
+            .json({ success: 0, message: 'No category found' });
+    }
+    const subCat = await categoryDAO.getSecondCategory(catID);
+    const curCat = await categoryDAO.getParentCat(catID);
+    return res.status(200).json({ success: 1, curCat, subCat: subCat });
 };
 
 const getAllSubCategory = async (req, res) => {

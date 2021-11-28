@@ -8,7 +8,7 @@ class CategoryApi {
     };
 
     getSecondSubCat = (catID) => {
-        const url = `/category/subCat/:${catID}`;
+        const url = `/category/subCat/${catID}`;
         return axiosClient.get(url);
     };
 

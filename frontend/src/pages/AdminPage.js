@@ -3,12 +3,12 @@ import { Route, Routes } from 'react-router-dom';
 
 import classes from './AdminPage.module.css';
 
-import SideBar from '../components/Admin/SideBar';
+import SideBar from '../components/Admin/UI/SideBar';
 import Overview from '../components/Admin/Overview';
 import Order from '../components/Admin/Order';
 import Product from '../components/Admin/Product/Product';
 import Payment from '../components/Admin/Payment';
-import Promotion from '../components/Admin/Order';
+import Promotion from '../components/Admin/Promotion';
 import Setting from '../components/Admin/Setting';
 
 const AdminPage = () => {

@@ -1,0 +1,24 @@
+.lineThrough {
+    width: 100%;
+    border-top: solid 0.5px var(--brown-grey);
+    line-height: 0.1em;
+}
+
+.titleText {
+    background-color: var(--white);
+    margin-left: 80px;
+    padding: 0 20px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+    margin-bottom: 66px;
+}

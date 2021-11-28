@@ -1,0 +1,22 @@
+.container {
+    width: 130px;
+    height: 227px;
+    text-decoration: none;
+}
+
+.image {
+    object-fit: cover;
+    width: 100%;
+    height: 194px;
+}
+
+.name {
+    margin-top: 5px;
+    font-size: 1.2rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: var(--greyish-brown);
+}

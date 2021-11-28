@@ -4,15 +4,27 @@ const create = (product) => {
     return db('product').insert(product);
 };
 const addCategory = (categoryData) => {
+    if (categoryData.length === 0) {
+        return;
+    }
     return db('product_category').insert(categoryData);
 };
 const addImgUrl = (imageUrlData) => {
+    if (imageUrlData.length === 0) {
+        return;
+    }
     return db('product_image').insert(imageUrlData);
 };
 const addColor = (colorData) => {
+    if (colorData.length === 0) {
+        return;
+    }
     return db('product_color').insert(colorData);
 };
 const addSize = (sizeData) => {
+    if (sizeData.length === 0) {
+        return;
+    }
     return db('product_size').insert(sizeData);
 };
 
@@ -42,10 +54,19 @@ const getProductBrand = async (brandID) => {
     return result[0];
 };
 const getProductColor = (prodID) => {
-    return db('product_color').where({ product_id: prodID });
+    return db
+        .select('c.*')
+        .from({ prodCol: 'product_color' })
+        .join({ c: 'color' }, 'prodCol.color_id', '=', 'c.id')
+        .where({ product_id: prodID });
 };
 const getProductSize = (prodID) => {
-    return db('product_size').where({ product_id: prodID });
+    // return db('product_size').where({ product_id: prodID });
+    return db
+        .select('s.*')
+        .from({ prodSize: 'product_size' })
+        .join({ s: 'size' }, 'prodSize.size_id', '=', 's.id')
+        .where({ product_id: prodID });
 };
 
 const getSameBrandProduct = (prodID, brandID, limit) => {
@@ -59,7 +80,7 @@ const getSameBrandProduct = (prodID, brandID, limit) => {
 
 const getRelateProduct = (prodID, limit) => {
     return db('product')
-        .select('id', 'thumbnail_url')
+        .select('id', 'name', 'thumbnail_url')
         .whereNot({ id: prodID })
         .where({ is_deleted: 0 })
         .limit(limit);
@@ -98,8 +119,6 @@ const countProductListBySecondCat = async (catID) => {
 
     const products = await db('product')
         .whereIn('id', productIDArray)
-        .offset(offset)
-        .limit(limit)
         .where({ is_deleted: 0 });
 
     return products.length;
@@ -125,9 +144,7 @@ const countProductListByThirdCat = async (catID) => {
 
     const products = await db('product')
         .whereIn('id', productIDArray)
-        .where({ is_deleted: 0 })
-        .offset(offset)
-        .limit(limit);
+        .where({ is_deleted: 0 });
 
     return products.length;
 };

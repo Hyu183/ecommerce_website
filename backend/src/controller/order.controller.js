@@ -33,12 +33,16 @@ const createOrder = async (req, res) => {
     const orderID = await orderDAO.create(order);
 
     //add order detail - order_id, product_id,price, quantity,color_id,size_id
-    await Promise.all(
-        orderDetails.forEach(async (element) => {
-            const orderDetail = new OrderDetail(orderID, element);
-            await orderDAO.addOrderDetail(orderDetail);
-        })
-    );
+    // await Promise.all(
+    orderDetails.forEach(async (element) => {
+        const orderDetail = new OrderDetail(orderID, element);
+        await orderDAO.addOrderDetail(orderDetail);
+        await orderDAO.updateQuantity(
+            orderDetail.product_id,
+            orderDetail.quantity
+        );
+    });
+    // );
 
     return res.status(200).json('OK');
 };

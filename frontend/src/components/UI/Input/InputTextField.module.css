@@ -1,0 +1,42 @@
+.inputContainer {
+    padding: 12px 0;
+}
+
+.inputLabel {
+    font-size: 1.2rem;
+    font-weight: bold;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.17;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.inputField {
+    border-radius: 2px;
+    border: solid 1px var(--white-three);
+    background-color: var(--white);
+    outline: none;
+    /* width: 780px; */
+    width: 100%;
+    height: 48px;
+    padding-left: 16px;
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: normal;
+    color: var(--charcoal-grey);
+}
+
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type='number'] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    margin: 0;
+}

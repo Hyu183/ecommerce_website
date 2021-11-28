@@ -15,6 +15,11 @@ const useInput = (validator) => {
         setIsTouched(true);
     };
 
+    const clearInputHandler = () => {
+        setEnteredValue('');
+        setIsTouched(false);
+    };
+
     return {
         value: enteredValue,
         isValid: valueIsValid,
@@ -22,6 +27,7 @@ const useInput = (validator) => {
         hasError,
         valueChangeHandler,
         inputBlurHandler,
+        clearInputHandler,
     };
 };
 

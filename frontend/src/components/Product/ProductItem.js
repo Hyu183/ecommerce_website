@@ -8,7 +8,7 @@ import ElevatedButton from '../UI/Button/ElevatedButton';
 import SoldOutBadge from '../UI/Badge/SoldOutBadge';
 
 const ProductItem = (props) => {
-    const { prodID, prodImgUrl, prodName, prodPrice, prodQuantity } = props; //
+    const { prodID, prodImgUrl, prodName, prodPrice, prodInStock } = props; //
     const [showButton, setShowButton] = useState(false);
 
     return (
@@ -27,7 +27,7 @@ const ProductItem = (props) => {
                         onMouseEnter={() => setShowButton(true)}
                         onMouseLeave={() => setShowButton(false)}
                     >
-                        {prodQuantity > 0 ? (
+                        {prodInStock > 0 ? (
                             showButton && (
                                 <ElevatedButton
                                     text='+ Quick Shop'
@@ -42,7 +42,10 @@ const ProductItem = (props) => {
                         )}
                     </div>
 
-                    <Link to={`/${prodID}`} style={{ textDecoration: 'none' }}>
+                    <Link
+                        to={`/product/${prodID}`}
+                        style={{ textDecoration: 'none' }}
+                    >
                         <p className={classes['product-name']}>{prodName}</p>
                         <span
                             className={classes['product-price']}

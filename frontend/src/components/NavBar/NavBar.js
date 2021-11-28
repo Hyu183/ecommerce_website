@@ -39,18 +39,6 @@ const NavBar = () => {
                         </Col>
                     );
                 })}
-                {/* <Col>
-                    <NavBarDropdown mainCat='Men' subCatList={ListTest} />
-                </Col> */}
-                {/* <Col>
-                    <NavBarDropdown mainCat='Ladies' subCatList={ListTest2} />
-                </Col>
-                <Col>
-                    <NavBarDropdown mainCat='Girls' subCatList={ListTest} />
-                </Col>
-                <Col>
-                    <NavBarDropdown mainCat='Boy' subCatList={ListTest} />
-                </Col> */}
             </Row>
         </Container>
     );

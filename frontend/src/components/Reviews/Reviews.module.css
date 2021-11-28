@@ -1,0 +1,36 @@
+.lineThrough {
+    width: 100%;
+    border-top: solid 0.1px var(--brown-grey);
+    line-height: 0.1em;
+}
+
+.titleText {
+    background-color: var(--white);
+    margin-left: 80px;
+    padding: 0 20px;
+    font-size: 1.6rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 180px;
+    width: 100%;
+}
+
+.noReview {
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--greyish-two);
+}

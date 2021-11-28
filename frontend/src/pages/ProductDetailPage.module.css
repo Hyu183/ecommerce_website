@@ -1,0 +1,153 @@
+.breadcrumb {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    text-align: center;
+    color: var(--dark-grey);
+}
+
+.productContainer {
+    width: 100%;
+    height: 537px;
+    margin-bottom: 60px;
+    display: flex;
+}
+
+.images {
+    width: 80px;
+    margin-right: 20px;
+}
+
+.image {
+    height: 116px;
+    width: 100%;
+    object-fit: cover;
+    margin-bottom: 25px;
+}
+
+.thumbnail {
+    width: 379px;
+    margin-right: 70px;
+}
+
+.thumbnail img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.productDetail {
+    width: 429px;
+    margin-right: 120px;
+}
+
+.productName {
+    font-size: 2.4rem;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.productPrice {
+    font-size: 2.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.33;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.sameBrand {
+    width: 80px;
+}
+
+.sameBrandText {
+    margin-bottom: 10px;
+}
+
+.text {
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+}
+
+.brand {
+    font-size: 1.4rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: -0.1px;
+    color: var(--greyish-brown);
+}
+
+.sameBrand img {
+    width: 100%;
+    height: 114px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.button {
+    box-shadow: 0 6px 18px 0 rgba(0, 0, 0, 0.12);
+    background-color: #5f6dff;
+    width: 100%;
+}
+
+.description {
+    font-size: 1.2rem;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.83;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+    white-space: pre-line;
+}
+
+.divider {
+    width: 100%;
+    border-bottom: solid 0.5px var(--brown-grey);
+    margin: 26px 0px;
+}
+
+.ratingReviews {
+    margin: 13px 0px;
+}
+.size,
+.color {
+    margin: 20px 0px;
+}
+
+.quantity {
+    display: flex;
+    align-items: center;
+    margin: 25px 0px;
+}
+
+.quantityText {
+    font-size: 1.4rem;
+    font-weight: 500;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.57;
+    letter-spacing: normal;
+    color: var(--dark-grey);
+    margin-right: 20px;
+}
+
+.toast-text {
+    font-size: 1.6rem;
+}

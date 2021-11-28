@@ -8,13 +8,17 @@ import './custom.scss';
 import App from './App';
 import { AuthContextProvider } from './contexts/authContext';
 import { ModalShowContextProvider } from './contexts/modalShowContext';
+import { CartContextProvider } from './contexts/cartContext';
+// import { ImagesContextProvider } from './contexts/imagesContext';
 
 ReactDOM.render(
     <AuthContextProvider>
         <ModalShowContextProvider>
-            <React.StrictMode>
-                <App />
-            </React.StrictMode>
+            <CartContextProvider>
+                <React.StrictMode>
+                    <App />
+                </React.StrictMode>
+            </CartContextProvider>
         </ModalShowContextProvider>
     </AuthContextProvider>,
     document.getElementById('root')

@@ -11,25 +11,25 @@ const list = [
     {
         id: 1,
         imgUrl: 'https://macailabritton.com/wp-content/uploads/2018/12/Men27s2BFashion2BStreet2BStyle.jpg',
-        href: '/',
+        href: '/products/19',
         text: 'Men',
     },
     {
         id: 2,
         imgUrl: 'https://stylesatlife.com/wp-content/uploads/2021/04/High-Low-Maroon-Party-Dress.jpg',
-        href: '/',
+        href: '/products/7',
         text: 'Ladies',
     },
     {
         id: 3,
         imgUrl: 'https://i.pinimg.com/originals/75/b9/aa/75b9aab00ebaa0fa70d3b96a3f266181.jpg',
-        href: '/',
+        href: '/products/20',
         text: 'Girls',
     },
     {
         id: 4,
         imgUrl: 'https://i.pinimg.com/originals/53/97/d7/5397d77c08b4f3566c0b94894a150060.jpg',
-        href: '/',
+        href: '/products/21',
         text: 'Boys',
     },
 ];

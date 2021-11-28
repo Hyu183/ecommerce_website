@@ -18,6 +18,7 @@ import modalShowContext from '../../contexts/modalShowContext';
 const Header = () => {
     const authCtx = useContext(authContext);
     const modalShowCtx = useContext(modalShowContext);
+
     const [showSettings, setShowSettings] = useState(false);
 
     const isLoggedIn = authCtx.isLoggedIn;
@@ -129,7 +130,7 @@ const Header = () => {
                                 />
                             </React.Fragment>
                         )}
-                        <CartIcon productCount={1} />
+                        <CartIcon />
                     </Col>
                 </Row>
             </Container>
