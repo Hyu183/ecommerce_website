@@ -83,9 +83,10 @@ const loginUser = async (req, res) => {
         id: user.id,
         email: user.email,
         name: user.name,
+        role: user.role,
     };
     //generate JWT
-    const token = JWT.generateJWT(user.id);
+    const token = JWT.generateJWT(user.id, user.role);
     await userDAO.updateAccessToken(user.id, token);
 
     return res.status(200).json({

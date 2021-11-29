@@ -9,7 +9,6 @@ import App from './App';
 import { AuthContextProvider } from './contexts/authContext';
 import { ModalShowContextProvider } from './contexts/modalShowContext';
 import { CartContextProvider } from './contexts/cartContext';
-// import { ImagesContextProvider } from './contexts/imagesContext';
 
 ReactDOM.render(
     <AuthContextProvider>

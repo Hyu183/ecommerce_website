@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 
 import classes from './DropdownAvatar.module.css';
 
@@ -7,7 +7,10 @@ import dropdownIcon from '../../../../assets/dropdown.svg';
 import profileIcon from '../../../../assets/profile.svg';
 import logoutIcon from '../../../../assets/logout.svg';
 
+import authContext from '../../../../contexts/authContext';
+
 const DropdownAvatar = (props) => {
+    const authCtx = useContext(authContext);
     const [showDropdown, setShowDropdown] = useState(false);
 
     const onClickHandler = () => {
@@ -25,14 +28,14 @@ const DropdownAvatar = (props) => {
                 onClick={onClickHandler}
                 onMouseLeave={onMouseLeaveHandler}
             >
-                Lucile Bush <img src={dropdownIcon} alt='' />{' '}
+                {authCtx.user.name} <img src={dropdownIcon} alt='' />{' '}
                 {showDropdown && (
                     <ul className={classes.wrapper}>
                         <li>
                             <img src={profileIcon} alt='' />
                             <button>View profile</button>
                         </li>
-                        <li>
+                        <li onClick={authCtx.logout}>
                             <img src={logoutIcon} alt='' />
                             <button>Logout</button>
                         </li>

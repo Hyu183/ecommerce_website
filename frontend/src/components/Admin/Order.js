@@ -1,5 +1,5 @@
 import { Row, Col, Container } from 'react-bootstrap';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
 
@@ -16,11 +16,12 @@ import notificationIcon from './../../assets/notification.svg';
 import mailIcon from './../../assets/mail.svg';
 import calendarIcon from './../../assets/calendar.svg';
 
+import authContext from './../../contexts/authContext';
 import orderApi from './../../api/orderApi';
 
 const Order = () => {
     dayjs.extend(advancedFormat);
-
+    const authCtx = useContext(authContext);
     const [orders, setOrders] = useState([]);
     const [total, setTotal] = useState(0);
     const [currentPage, setCurrentPage] = useState(0);
@@ -31,7 +32,7 @@ const Order = () => {
     useEffect(() => {
         setIsLoading(true);
         orderApi
-            .getOrders(currentPage)
+            .getOrders(currentPage, authCtx.token)
             .then((res) => {
                 console.log(res.data.orderDetails);
                 setOrders(res.data.orderDetails);
@@ -41,7 +42,7 @@ const Order = () => {
             .catch((err) => {
                 console.log(err);
             });
-    }, [currentPage]);
+    }, [currentPage, authCtx.token]);
 
     const onPageChange = (page) => {
         setCurrentPage(page);

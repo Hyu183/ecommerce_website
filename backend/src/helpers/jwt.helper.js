@@ -5,11 +5,13 @@ import { config } from 'dotenv';
 config();
 
 //payload: id of user
-const generateJWT = (userID) => {
+const generateJWT = (userID, userRole) => {
     const secretKey = process.env.JWT_SECRET_KEY;
     const expireTime = process.env.JWT_EXPIRE_TIME;
 
-    return jwt.sign({ id: userID }, secretKey, { expiresIn: expireTime });
+    return jwt.sign({ id: userID, role: userRole }, secretKey, {
+        expiresIn: expireTime,
+    });
 };
 
 const verifyJWT = (token) => {

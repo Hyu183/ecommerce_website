@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 const AuthContext = React.createContext({
-    accessToken: '',
+    token: '',
     isLoggedIn: false,
     user: {},
     login: (accessToken, user) => {},
@@ -15,7 +15,6 @@ export const AuthContextProvider = (props) => {
     try {
         parsedUser = JSON.parse(storedUser);
     } catch (error) {
-        // console.log(error);
         parsedUser = {};
     }
 
@@ -24,7 +23,7 @@ export const AuthContextProvider = (props) => {
     const userIsLoggedIn = !!token;
     const loginHandler = (token, user) => {
         localStorage.setItem('token', token);
-        localStorage.setItem('user', user);
+        localStorage.setItem('user', JSON.stringify(user));
         setToken(token);
         setUser(user);
     };

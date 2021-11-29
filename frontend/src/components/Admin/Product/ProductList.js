@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import dayjs from 'dayjs';
 import advancedFormat from 'dayjs/plugin/advancedFormat';
@@ -15,9 +15,11 @@ import exportIcon from '../../../assets/export-orange.svg';
 import dropdownIcon from '../../../assets/dropdown.svg';
 
 import productApi from '../../../api/productApi';
+import authContext from '../../../contexts/authContext';
 
 const ProductList = () => {
     dayjs.extend(advancedFormat);
+    const authCtx = useContext(authContext);
     const location = useLocation();
     const [products, setProducts] = useState([]);
     const [total, setTotal] = useState(0);
@@ -29,7 +31,7 @@ const ProductList = () => {
     useEffect(() => {
         setIsLoading(true);
         productApi
-            .getProductList(currentPage)
+            .getProductList(currentPage, authCtx.token)
             .then((res) => {
                 console.log(res.data.productWithCatName);
                 setProducts(res.data.productWithCatName);
@@ -39,7 +41,7 @@ const ProductList = () => {
             .catch((err) => {
                 console.log(err);
             });
-    }, [currentPage]);
+    }, [currentPage, authCtx.token]);
 
     const onPageChange = (page) => {
         setCurrentPage(page);

@@ -33,6 +33,7 @@ import ScrollToTop from './components/UI/ScrollToTop/ScrollToTop';
 import modalShowContext from './contexts/modalShowContext';
 
 import 'material-react-toastify/dist/ReactToastify.css';
+import ProtectedRoute from './components/ProtectedRoute/ProtectedRoute';
 
 library.add(
     fab,
@@ -64,7 +65,11 @@ function App() {
                         path='/product/:proID'
                         element={<ProductDetailPage />}
                     />
-                    <Route path='/admin/*' element={<AdminPage />} />
+                    <Route
+                        path='/admin/*'
+                        element={<ProtectedRoute element={<AdminPage />} />}
+                    />
+
                     <Route path='*' element={<Navigate replace to='/' />} />
                 </Routes>
             </Router>

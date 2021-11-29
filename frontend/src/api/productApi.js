@@ -1,12 +1,13 @@
 import axiosClient from './axiosClient';
 
 class ProductApi {
-    addProduct = (product) => {
+    addProduct = (product, token) => {
         const url = '/product/add';
 
         return axiosClient.post(url, product, {
             headers: {
                 'content-type': 'multipart/form-data',
+                Authorization: `Bearer ${token}`,
             },
         });
     };
@@ -16,18 +17,20 @@ class ProductApi {
         return axiosClient.get(url);
     };
 
-    getProductList = (page) => {
+    getProductList = (page, token) => {
         const url = `/product?page=${page}`;
+        return axiosClient.get(url, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
+    };
+
+    getProductListByCatLv1 = (catID, page) => {
+        const url = `/product/all/${catID}?page=${page}`;
         return axiosClient.get(url);
     };
 
-    getProductListByCatLv1 = (catID) => {
-        const url = `/product/all/${catID}`;
-        return axiosClient.get(url);
-    };
-
-    getProductListByCatLv0 = (catID) => {
-        const url = `/product/cat/${catID}`;
+    getProductListByCatLv0 = (catID, page) => {
+        const url = `/product/cat/${catID}?page=${page}`;
         return axiosClient.get(url);
     };
 }

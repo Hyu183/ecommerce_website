@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import { Col, Container, Row } from 'react-bootstrap';
 import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'material-react-toastify';
@@ -20,9 +20,11 @@ import {
 } from '../../../utils/validator';
 import categoryApi from '../../../api/categoryApi';
 import productApi from '../../../api/productApi';
+import authContext from '../../../contexts/authContext';
 
 const AddProduct = () => {
     const navigate = useNavigate();
+    const authCtx = useContext(authContext);
     const [isLoading, setIsLoading] = useState(false);
     //hold data from database
     const [categoriesData, setCategoriesData] = useState([]);
@@ -127,7 +129,7 @@ const AddProduct = () => {
         });
         setIsLoading(true);
         productApi
-            .addProduct(form)
+            .addProduct(form, authCtx.token)
             .then((res) => {
                 clearFormHandler();
                 setIsLoading(false);

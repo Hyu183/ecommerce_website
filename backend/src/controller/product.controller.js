@@ -147,9 +147,9 @@ const getProduct = async (req, res) => {
 
 const getProductListBySecondCat = async (req, res) => {
     const catID = req.params.catIDlv1;
-    const page = req.query.page || 1;
+    const page = req.query.page || 0;
     const limit = 20;
-    const offset = (page - 1) * limit;
+    const offset = page * limit;
     const isCatIDExist = await categoryDAO.checkCatIDExist(catID);
     if (!isCatIDExist) {
         return res
@@ -178,9 +178,9 @@ const getProductListBySecondCat = async (req, res) => {
 };
 const getProductListByThirdCat = async (req, res) => {
     const catID = req.params.catIDlv0;
-    const page = req.query.page || 1;
+    const page = req.query.page || 0;
     const limit = 20;
-    const offset = (page - 1) * limit;
+    const offset = page * limit;
     const isCatIDExist = await categoryDAO.checkCatIDExist(catID);
     if (!isCatIDExist) {
         return res

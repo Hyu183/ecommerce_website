@@ -26,12 +26,12 @@ const ProductListPage = () => {
     const [isLoadingPage, setIsLoadingPage] = useState(true);
     const [isLoadingProduct, setIsLoadingProduct] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState(+categoryParam);
-    const [currentPage, setCurrentPage] = useState(1);
+    const [currentPage, setCurrentPage] = useState(0);
     const productPerPage = 20;
     useEffect(() => {
         Promise.all([
-            categoryApi.getSecondSubCat(categoryParam),
-            productApi.getProductListByCatLv1(categoryParam),
+            categoryApi.getSecondSubCat(categoryParam, currentPage),
+            productApi.getProductListByCatLv1(categoryParam, currentPage),
         ])
             .then((result) => {
                 const categoryResponse = result[0];
@@ -51,14 +51,14 @@ const ProductListPage = () => {
                 console.log(err);
                 setIsLoadingPage(false);
             });
-    }, [categoryParam, navigate]);
+    }, [categoryParam, navigate, currentPage]);
 
     const onCategoryClickHandler = (index, id) => {
         setSelectedCategory(id);
         setIsLoadingProduct(true);
         if (index === 0) {
             productApi
-                .getProductListByCatLv1(id)
+                .getProductListByCatLv1(id, currentPage)
                 .then((res) => {
                     setProductList(res.data.productDetailList);
                     setTotalProducts(res.data.total);
@@ -70,7 +70,7 @@ const ProductListPage = () => {
                 });
         } else {
             productApi
-                .getProductListByCatLv0(id)
+                .getProductListByCatLv0(id, currentPage)
                 .then((res) => {
                     setProductList(res.data.productDetailList);
                     setTotalProducts(res.data.total);
@@ -167,7 +167,7 @@ const ProductListPage = () => {
                                     {productList.length !== 0 && (
                                         <Col>
                                             <PagingProductList
-                                                currentPage={currentPage}
+                                                currentPage={currentPage + 1}
                                                 totalPages={Math.ceil(
                                                     totalProducts /
                                                         productPerPage
@@ -209,7 +209,7 @@ const ProductListPage = () => {
                                     >
                                         <Col>
                                             <PagingProductList
-                                                currentPage={currentPage}
+                                                currentPage={currentPage + 1}
                                                 totalPages={Math.ceil(
                                                     totalProducts /
                                                         productPerPage

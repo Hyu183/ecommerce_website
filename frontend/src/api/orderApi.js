@@ -1,9 +1,13 @@
+// import { useContext } from 'react';
 import axiosClient from './axiosClient';
 
 class OrderApi {
-    getOrders = (page) => {
+    getOrders = (page, token) => {
         const url = `/order?page=${page}`;
-        return axiosClient.get(url);
+
+        return axiosClient.get(url, {
+            headers: { Authorization: `Bearer ${token}` },
+        });
     };
 
     //user: obj - name, email, password
