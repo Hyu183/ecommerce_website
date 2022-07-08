@@ -1,6 +1,7 @@
 import jwt from "jsonwebtoken";
 
 //payload: id of user
+
 const generateJWT = (userID, userRole) => {
   const secretKey = process.env.JWT_SECRET_KEY;
   const expireTime = process.env.JWT_EXPIRE_TIME;
