@@ -1,4 +1,4 @@
-import { config } from 'dotenv';
+
 import bcrypt from 'bcryptjs';
 import generator from 'generate-password';
 
@@ -8,8 +8,7 @@ import ValidatorHelper from '../helpers/validator.helper.js';
 import * as JWT from '../helpers/jwt.helper.js';
 import sendMail from '../helpers/sendMail.helper.js';
 
-//load .env
-config();
+
 
 /**
  * func: register user

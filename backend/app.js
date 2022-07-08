@@ -1,10 +1,14 @@
 import express from "express";
 import cors from "cors";
-import { config } from "dotenv";
-import morgan from "morgan";
+if (process.env.NODE_ENV !== "production") {
+  // import { config } from "dotenv";
+  // import morgan from "morgan";
+  require("dotenv").config();
+  app.use(require("morgan")("dev"));
+}
 import router from "./routes.js";
 
-config();
+// config();
 
 const app = express();
 
@@ -15,7 +19,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("public"));
 
 //dev
-app.use(morgan("dev"));
 
 //add router
 router(app);

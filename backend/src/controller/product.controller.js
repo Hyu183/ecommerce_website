@@ -1,4 +1,3 @@
-import { config } from "dotenv";
 import multer from "multer";
 import uploadMdw from "../middlewares/upload.mdw.js";
 import Product from "../models/product.model.js";
@@ -11,8 +10,6 @@ import {
 
 import * as productDAO from "../dao/product.dao.js";
 import * as categoryDAO from "../dao/category.dao.js";
-
-config();
 
 const addProduct = (req, res) => {
   uploadMdw.array("photos", +process.env.FILE_LIMIT)(req, res, async (err) => {
